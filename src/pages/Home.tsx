@@ -1,12 +1,16 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from 'react';
+import CharacterList from './../components/CharacterList'
+import Navbar from '../components/Navbar';
+import Search from '../components/Search';
 
 const Home = () => {
   return (
     <div>
-       <Navbar /> 
+      <Navbar />
+      <Search />
+      <CharacterList />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
