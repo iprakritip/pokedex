@@ -13,10 +13,10 @@ const CharacterCard = () => {
       <p className='text-xs  font-semibold text-gray-500'>#001</p>
       <p className='font-bold text-gray-800'>Bulbusaur</p>
       <div className='flex flex-wrap gap-4'>
-        <p className='bg-[#25D5A8] px-3 py-2 border border-[#2DE4A0] rounded-md text-xs font-medium text-white'>
+        <p className='bg-grass px-3 py-2 border border-[#2DE4A0] rounded-md text-xs font-medium text-white'>
           Grass
         </p>
-        <p className='bg-[#A33EA1] px-2 py-2 border border-[#A33EA1] rounded-md text-xs font-medium text-white'>
+        <p className='bg-poison px-2 py-2 border border-[#A33EA1] rounded-md text-xs font-medium text-white'>
           Poison
         </p>
       </div>
