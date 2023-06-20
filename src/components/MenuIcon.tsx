@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 
-const MenuIcon = () => {
+interface MenuIconProps {
+  setToggleMenu: Dispatch<SetStateAction<boolean>>;
+}
+
+const MenuIcon = ({setToggleMenu}: MenuIconProps) => {
+  const openMenu = () => {
+    setToggleMenu((prevValue) => !prevValue);
+  };
+
   return (
-    <div className='flex flex-col gap-[1px] '>
+    <button className='flex flex-col gap-[1px]' onClick={openMenu}>
       <div className='w-[1.5rem] h-[1rem] border border-r-0 bg-gray-800 rounded-sm'></div>
       <div className='w-[1.5rem] h-[1rem] border border-r-0 bg-gray-800 rounded-sm'></div>
-    </div>
+    </button>
   );
 };
 
