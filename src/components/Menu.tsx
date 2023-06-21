@@ -20,12 +20,12 @@ const Menu = ({toggleMenu, setToggleMenu}: MenuProps) => {
         </button>
       </p>
       <div className='flex flex-wrap justify-between gap-4 px-6'>
-        <MenuItem label='Pokedex' color='green-500' />
-        <MenuItem label='Moves' color='pink-500' />
-        <MenuItem label='Abilities' color='blue-500' />
-        <MenuItem label='Items' color='yellow-500' />
-        <MenuItem label='Locations' color='purple-500' />
-        <MenuItem label='Type Effects' color='rose-950' />
+        <MenuItem label='Pokedex' border='border-green-500' bg='bg-green-500' />
+        <MenuItem label='Moves' border='border-pink-500' bg='bg-pink-500' />
+        <MenuItem label='Abilities' border='border-blue-500' bg='bg-blue-500' />
+        <MenuItem label='Items' border='border-yellow-500' bg='bg-yellow-500' />
+        <MenuItem label='Locations'  border='border-purple-500' bg='bg-purple-500' />
+        <MenuItem label='Type Effects' border='border-rose-950' bg='bg-rose-950' />
       </div>
     </div>
   );
