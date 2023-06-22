@@ -4,9 +4,9 @@ import CharacterInfo from './CharacterInfo';
 
 const CharacterList = () => {
   const [toggleDetails, setToggleDetails] = useState<boolean>(false);
-  const toggleDetailsCard=()=>{
-    setToggleDetails(!toggleDetails)
-  }
+  const toggleDetailsCard = () => {
+    setToggleDetails(!toggleDetails);
+  };
   return (
     <div className='flex'>
       <div
@@ -35,9 +35,17 @@ const CharacterList = () => {
         <CharacterCard toggleDetailsCard={toggleDetailsCard} />
         <CharacterCard toggleDetailsCard={toggleDetailsCard} />
         <CharacterCard toggleDetailsCard={toggleDetailsCard} />
-       
       </div>
-      <CharacterInfo toggleDetails={toggleDetails} />
+      <CharacterInfo
+        toggleDetails={toggleDetails}
+        id='001'
+        name='Bulbusaur'
+        img='https://www.pngmart.com/files/11/Pokemon-Bulbasaur-PNG-HD.png'
+        description='A strange seed was planted on its back at birth.The plant sprouts
+        and grows with this POKéMON.'
+        height='0.7'
+        weight='6.9'
+      />
     </div>
   );
 };
