@@ -1,14 +1,14 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 
 interface CharacterCardProps {
-  setToggleDetails: Dispatch<SetStateAction<boolean>>;
+  toggleDetailsCard: () => void;
 }
 
-const CharacterCard = ({setToggleDetails}: CharacterCardProps) => {
+const CharacterCard = ({toggleDetailsCard}: CharacterCardProps) => {
   return (
     <div
       className='bg-white w-[12rem] relative border rounded shadow flex flex-col gap-3 items-center py-8'
-      onClick={() => setToggleDetails((prevValue) => !prevValue)}
+      onClick={toggleDetailsCard}
     >
       <div className='w-[4rem] absolute top-[-20%]'>
         <img

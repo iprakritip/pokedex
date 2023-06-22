@@ -1,12 +1,12 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import MenuItem from './MenuItem';
 
 interface MenuProps {
   toggleMenu: boolean;
-  setToggleMenu: Dispatch<SetStateAction<boolean>>;
+  closeMenu: () => void;
 }
 
-const Menu = ({toggleMenu, setToggleMenu}: MenuProps) => {
+const Menu = ({toggleMenu, closeMenu}: MenuProps) => {
   return (
     <div
       className={`h-screen w-[30vw] bg-white z-10 fixed ${
@@ -15,7 +15,7 @@ const Menu = ({toggleMenu, setToggleMenu}: MenuProps) => {
     >
       <p className='w-full bg-green-500 h-[4rem] text-white text-xl font-semibold flex justify-between items-center px-6'>
         Menu
-        <button className='' onClick={() => setToggleMenu(!toggleMenu)}>
+        <button className='' onClick={closeMenu}>
           ✕
         </button>
       </p>
@@ -24,8 +24,16 @@ const Menu = ({toggleMenu, setToggleMenu}: MenuProps) => {
         <MenuItem label='Moves' border='border-pink-500' bg='bg-pink-500' />
         <MenuItem label='Abilities' border='border-blue-500' bg='bg-blue-500' />
         <MenuItem label='Items' border='border-yellow-500' bg='bg-yellow-500' />
-        <MenuItem label='Locations'  border='border-purple-500' bg='bg-purple-500' />
-        <MenuItem label='Type Effects' border='border-rose-950' bg='bg-rose-950' />
+        <MenuItem
+          label='Locations'
+          border='border-purple-500'
+          bg='bg-purple-500'
+        />
+        <MenuItem
+          label='Type Effects'
+          border='border-rose-950'
+          bg='bg-rose-950'
+        />
       </div>
     </div>
   );

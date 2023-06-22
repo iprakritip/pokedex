@@ -1,11 +1,11 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import MenuIcon from './MenuIcon';
 
 interface NavbarProps {
-  setToggleMenu: Dispatch<SetStateAction<boolean>>;
+  accessMenu: () => void;
 }
 
-const Navbar = ({setToggleMenu}: NavbarProps) => {
+const Navbar = ({accessMenu}: NavbarProps) => {
   return (
     <div className='w-screen flex justify-between items-center'>
       <div className='w-[12rem]'>
@@ -15,7 +15,7 @@ const Navbar = ({setToggleMenu}: NavbarProps) => {
           alt='poke-logo'
         />
       </div>
-      <MenuIcon setToggleMenu={setToggleMenu} />
+      <MenuIcon setToggleMenu={accessMenu} />
     </div>
   );
 };

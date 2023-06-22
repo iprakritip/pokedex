@@ -4,6 +4,9 @@ import CharacterInfo from './CharacterInfo';
 
 const CharacterList = () => {
   const [toggleDetails, setToggleDetails] = useState<boolean>(false);
+  const toggleDetailsCard=()=>{
+    setToggleDetails(!toggleDetails)
+  }
   return (
     <div className='flex'>
       <div
@@ -11,30 +14,28 @@ const CharacterList = () => {
           toggleDetails ? 'mr-[25rem]' : ''
         } flex flex-wrap justify-between gap-10 w-full`}
       >
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
-        <CharacterCard setToggleDetails={setToggleDetails} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+        <CharacterCard toggleDetailsCard={toggleDetailsCard} />
+       
       </div>
       <CharacterInfo toggleDetails={toggleDetails} />
     </div>
