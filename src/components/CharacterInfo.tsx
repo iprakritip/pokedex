@@ -7,7 +7,7 @@ interface CharacterInfoProps {
 const CharacterInfo = ({toggleDetails}: CharacterInfoProps) => {
   return (
     <div
-      className={`h-max w-[25rem] px-5 pb-4 bg-white shadow border rounded-lg mt-[3rem] right-0 ${
+      className={`h-max w-[24rem] px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
         toggleDetails ? 'flex' : 'hidden'
       } flex-col items-center pt-8 gap-2`}
     >
