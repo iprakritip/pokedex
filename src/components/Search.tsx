@@ -8,6 +8,7 @@ const Search = () => {
         placeholder='Search'
         className='w-[91%]  border border-gray-300 rounded px-4 outline-none'
       />
+      
       <div className='absolute top-3 right-[7.5rem] '>
         <svg
           xmlns='http://www.w3.org/2000/svg'
