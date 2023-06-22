@@ -6,6 +6,7 @@ import Menu from '../components/Menu';
 
 const Home = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  
   return (
     <div className='relative'>
       <Menu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />

@@ -1,8 +1,16 @@
 import React from 'react';
 
-const CharacterInfo = () => {
+interface CharacterInfoProps {
+  toggleDetails: boolean;
+}
+
+const CharacterInfo = ({toggleDetails}: CharacterInfoProps) => {
   return (
-    <div className='h-max w-[25rem] px-5 pb-4 bg-white shadow border rounded-lg flex flex-col items-center pt-8 gap-2'>
+    <div
+      className={`h-max w-[25rem] px-5 pb-4 bg-white shadow border rounded-lg mt-[3rem] right-0 ${
+        toggleDetails ? 'flex' : 'hidden'
+      } flex-col items-center pt-8 gap-2`}
+    >
       <div className='w-[10rem]'>
         <img
           src='https://www.pngmart.com/files/11/Pokemon-Bulbasaur-PNG-HD.png'
