@@ -3,6 +3,7 @@ import CharacterList from './../components/CharacterList';
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import Menu from '../components/Menu';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -13,6 +14,7 @@ const Home = () => {
       <Navbar setToggleMenu={setToggleMenu} />
       <Search />
       <CharacterList />
+      <Footer />
     </div>
   );
 };
