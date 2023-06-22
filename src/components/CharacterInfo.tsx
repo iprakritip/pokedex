@@ -21,11 +21,11 @@ const CharacterInfo = ({
 }: CharacterInfoProps) => {
   return (
     <div
-      className={`h-max w-[24rem] px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
+      className={`h-max w-96 px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
         toggleDetails ? 'flex' : 'hidden'
       } flex-col items-center pt-8 gap-2`}
     >
-      <div className='w-[10rem]'>
+      <div className='w-40'>
         <img src={img} alt='bulbasaur' className='' />
       </div>
       <p className='text-sm  font-semibold text-gray-500'>#{id}</p>
@@ -50,13 +50,13 @@ const CharacterInfo = ({
         <div className='flex gap-4 justify-center'>
           <div className='flex flex-col items-center gap-1'>
             <p className='font-semibold text-sm'>HEIGHT</p>
-            <p className='bg-slate-100 w-[8rem] py-2 border text-sm border-slate-100 rounded-full text-center'>
+            <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
               {height} meters
             </p>
           </div>
           <div className='flex flex-col items-center gap-1'>
             <p className='font-semibold text-sm'>WEIGHT</p>
-            <p className='bg-slate-100 w-[8rem] py-2 border text-sm border-slate-100 rounded-full text-center'>
+            <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
               {weight} kgs
             </p>
           </div>

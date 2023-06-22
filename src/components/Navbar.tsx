@@ -8,7 +8,7 @@ interface NavbarProps {
 const Navbar = ({accessMenu}: NavbarProps) => {
   return (
     <div className='w-screen flex justify-between items-center'>
-      <div className='w-[12rem]'>
+      <div className='w-48'>
         <img
           className='w-full'
           src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
