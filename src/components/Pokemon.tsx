@@ -1,13 +1,16 @@
 import React from 'react';
-import {POKEMON_TYPES} from '../api/hooks';
+import Type from '../components/Type';
 
 interface PokemonProps {
   // toggleDetailsCard: () => void;
   id: number;
   name: string;
-  types?: {
-    pokemon_v2_type: POKEMON_TYPES[];
-  };
+  types: {
+    pokemon_v2_type: {
+      id: number;
+      name: string;
+    };
+  }[];
 }
 
 const Pokemon = ({
@@ -17,7 +20,7 @@ const Pokemon = ({
   types,
 }: PokemonProps) => {
   return (
-    <div className='bg-white w-48 relative border rounded shadow flex flex-col gap-3 items-center py-8'>
+    <div className='bg-white w-[18%] relative border rounded shadow flex flex-col gap-3 items-center py-8'>
       <div className='w-16 absolute top-[-20%]'>
         {/* <img
           src={img}
@@ -25,14 +28,18 @@ const Pokemon = ({
         /> */}
       </div>
       <p className='text-xs  font-semibold text-gray-500'>#{id}</p>
-      <p className='font-bold text-gray-800'>{name}</p>
+      <p className='font-bold text-gray-800 text-sm'>{name.toUpperCase()}</p>
       <div className='flex flex-wrap gap-4'>
-        <button className='bg-grass px-3 py-2 border border-[#2DE4A0] rounded-md text-xs font-medium text-white'>
-          Grass
-        </button>
-        <button className='bg-poison px-2 py-2 border border-[#A33EA1] rounded-md text-xs font-medium text-white'>
-          Poison
-        </button>
+        {types.map((type) => {
+          console.log(type);
+          return (
+            <Type
+              key={type.pokemon_v2_type.id}
+              typeName={type.pokemon_v2_type.name}
+              typeId={type.pokemon_v2_type.id}
+            />
+          );
+        })}
       </div>
     </div>
   );

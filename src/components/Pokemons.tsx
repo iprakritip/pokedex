@@ -1,24 +1,16 @@
 import React from 'react';
-import {DATA, POKEMON_DATA} from '../api/hooks';
-import CharacterCard from './Pokemon';
+import {DATA} from '../api/hooks';
+import Pokemon from './Pokemon';
 
 const Pokemons = ({data}: DATA) => {
-  console.log(data);
+  // console.log(data.pokemon_v2_pokemon);
   return (
-    <div>
+    <div className='flex gap-8 flex-wrap justify-between'>
       {data.pokemon_v2_pokemon.map((pokemon) => {
+        //  const types = pokemon.pokemon_v2_pokemontypes.pokemon_v2_type.name;
+       const types = pokemon.pokemon_v2_pokemontypes;
         return (
-          // <div key={pokemon.id}>
-          //   {pokemon.name}
-          //   <div>
-          //     {pokemon.pokemon_v2_pokemontypes.map(
-          //       (type) => type.pokemon_v2_type.name
-          //     )}
-          //   </div>
-          // </div>
-          <div key={pokemon.id}>
-            <CharacterCard name={pokemon.name} id={pokemon.id} />
-          </div>
+          <Pokemon key={pokemon.id} name={pokemon.name} id={pokemon.id} types={types} />
         );
       })}
     </div>

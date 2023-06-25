@@ -16,7 +16,7 @@ const PokemonList = () => {
   if (error) return <div>error....</div>;
 
   return (
-    <>
+    <div className='flex w-screen mt-32'>
       <Pokemons data={data} />
       <PokemonInfo
         toggleDetails={toggleDetails}
@@ -28,7 +28,7 @@ const PokemonList = () => {
         height='0.7'
         weight='6.9'
       />
-    </>
+    </div>
   );
 };
 

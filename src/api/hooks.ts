@@ -19,13 +19,13 @@ export interface POKEMON_TYPES {
   id: number;
   name: string;
 }
-export interface POKEMON_DATA {
-  id: number;
-  name: string;
-  pokemon_v2_pokemontypes: {
-    pokemon_v2_type: POKEMON_TYPES [];
-  }[];
-}
+// export interface POKEMON_DATA {
+//   id: number;
+//   name: string;
+//   pokemon_v2_pokemontypes: {
+//     pokemon_v2_type: POKEMON_TYPES [];
+//   }[];
+// }
 
 export interface DATA {
   data: {
@@ -34,6 +34,7 @@ export interface DATA {
     name: string,
     pokemon_v2_pokemontypes: {
       pokemon_v2_type: {
+        id:number,
         name: string
       }
     }[]
@@ -41,11 +42,11 @@ export interface DATA {
 }
 }
 
-interface ALL_POKEMONS_DATA {
-  error: ApolloError | undefined;
-  loading: boolean;
-  data: POKEMON_DATA;
-}
+// interface ALL_POKEMONS_DATA {
+//   error: ApolloError | undefined;
+//   loading: boolean;
+//   data: POKEMON_DATA;
+// }
 
 export const useGetAllPokemons = () => {
   const {error, loading, data} = useQuery(GET_ALL_POKEMONS);
