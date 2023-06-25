@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface CharacterInfoProps {
+interface PokemonInfoProps {
   toggleDetails: boolean;
   id: string;
   name: string;
@@ -10,7 +10,7 @@ interface CharacterInfoProps {
   weight: string;
 }
 
-const CharacterInfo = ({
+const PokemonInfo = ({
   toggleDetails,
   id,
   name,
@@ -18,7 +18,7 @@ const CharacterInfo = ({
   description,
   height,
   weight,
-}: CharacterInfoProps) => {
+}: PokemonInfoProps) => {
   return (
     <div
       className={`h-max w-96 px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
@@ -75,4 +75,4 @@ const CharacterInfo = ({
   );
 };
 
-export default CharacterInfo;
+export default PokemonInfo;

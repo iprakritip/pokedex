@@ -1,23 +1,28 @@
 import React from 'react';
+import {POKEMON_TYPES} from '../api/hooks';
 
-interface CharacterCardProps {
-  toggleDetailsCard: () => void;
-  id:number;
-  name:string;
-  img:string;
+interface PokemonProps {
+  // toggleDetailsCard: () => void;
+  id: number;
+  name: string;
+  types?: {
+    pokemon_v2_type: POKEMON_TYPES[];
+  };
 }
 
-const CharacterCard = ({toggleDetailsCard,id, name, img}: CharacterCardProps) => {
+const Pokemon = ({
+  // toggleDetailsCard,
+  id,
+  name,
+  types,
+}: PokemonProps) => {
   return (
-    <div
-      className='bg-white w-48 relative border rounded shadow flex flex-col gap-3 items-center py-8'
-      onClick={toggleDetailsCard}
-    >
+    <div className='bg-white w-48 relative border rounded shadow flex flex-col gap-3 items-center py-8'>
       <div className='w-16 absolute top-[-20%]'>
-        <img
+        {/* <img
           src={img}
           alt={name}
-        />
+        /> */}
       </div>
       <p className='text-xs  font-semibold text-gray-500'>#{id}</p>
       <p className='font-bold text-gray-800'>{name}</p>
@@ -33,4 +38,4 @@ const CharacterCard = ({toggleDetailsCard,id, name, img}: CharacterCardProps) =>
   );
 };
 
-export default CharacterCard;
+export default Pokemon;
