@@ -37,7 +37,8 @@ export interface DATA {
         id:number,
         name: string
       }
-    }[]
+    }[],
+   
   }[]
 }
 }

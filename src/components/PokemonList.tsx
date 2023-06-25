@@ -10,13 +10,13 @@ const PokemonList = () => {
   };
 
   const {data, error, loading} = useGetAllPokemons();
-  // console.log(data);
+  console.log(data);
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error....</div>;
 
   return (
-    <div className='flex w-screen mt-32'>
+    <div className='flex w-screen mt-16'>
       <Pokemons data={data} />
       <PokemonInfo
         toggleDetails={toggleDetails}
