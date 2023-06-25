@@ -1,17 +1,20 @@
 import React from 'react';
+import {useGetPokemonInfo} from '../api/hooks';
 
 interface PokemonInfoProps {
-  toggleDetails: boolean;
+  displayInfo: boolean;
   id: string;
   name: string;
   img: string;
   description: string;
   height: string;
   weight: string;
+  clickedPokemonId: number;
 }
 
 const PokemonInfo = ({
-  toggleDetails,
+  clickedPokemonId,
+  displayInfo,
   id,
   name,
   img,
@@ -19,10 +22,11 @@ const PokemonInfo = ({
   height,
   weight,
 }: PokemonInfoProps) => {
+
   return (
     <div
       className={`h-max w-96 px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
-        toggleDetails ? 'flex' : 'hidden'
+        displayInfo ? 'flex' : 'hidden'
       } flex-col items-center pt-8 gap-2`}
     >
       <div className='w-40'>

@@ -2,7 +2,7 @@ import React from 'react';
 import Type from '../components/Type';
 
 interface PokemonProps {
-  // toggleDetailsCard: () => void;
+  togglePokeInfo: (id:number) => void;
   id: number;
   name: string;
   types: {
@@ -13,15 +13,10 @@ interface PokemonProps {
   }[];
 }
 
-const Pokemon = ({
-  // toggleDetailsCard,
-  id,
-  name,
-  types,
-}: PokemonProps) => {
+const Pokemon = ({togglePokeInfo, id, name, types}: PokemonProps) => {
   return (
-    <div className='relative w-[15%] h-[10rem] pt-28'>
-      <div className='absolute w-full bottom-[18%] z-10 flex justify-center'>
+    <div className='relative w-[15%] h-[15rem] pt-28' onClick={()=>togglePokeInfo(id)}>
+      <div className='absolute w-full bottom-[45%] z-10 flex justify-center'>
         <img
           src={`https://projectpokemon.org/images/normal-sprite/${name.replace(
             '-',
@@ -33,7 +28,7 @@ const Pokemon = ({
       <div className='bg-white w-full relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8'>
         <p className='text-xs  font-semibold text-gray-500'>#{id}</p>
         <p className='font-bold text-gray-800 text-sm'>{name.toUpperCase()}</p>
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-4 justify-center'>
           {types.map((type) => {
             return (
               <Type
