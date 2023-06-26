@@ -5,12 +5,15 @@ import Pokemons from './Pokemons';
 
 const PokemonList = () => {
   const [displayInfo, setDisplayInfo] = useState<boolean>(false);
-  const [clickedPokemonId, setClickedPokemonId] = useState(0);
-  const togglePokeInfo = (id: number) => {
+  const [clickedPokemonId,setClickedPokemonId]= useState(0)
+  const togglePokeInfo = () => {
     setDisplayInfo(true);
     // console.log(displayInfo);
-    setClickedPokemonId(id);
+
   };
+  const changeSelectedPokemonId= (id:number)=>{
+    setClickedPokemonId(id)
+  }
  
   const {data, error, loading} = useGetAllPokemons();
   // console.log(data);
@@ -24,9 +27,9 @@ const PokemonList = () => {
         data={data}
         togglePokeInfo={togglePokeInfo}
         displayInfo={displayInfo}
+        changeSelectedPokemonId={changeSelectedPokemonId}
       />
       <PokemonInfo
-      clickedPokemonId={clickedPokemonId}
         displayInfo={displayInfo}
         id='001'
         name='Bulbusaur'
@@ -35,6 +38,7 @@ const PokemonList = () => {
         and grows with this POKéMON.'
         height='0.7'
         weight='6.9'
+        clickedPokemonId={clickedPokemonId}
       />
     </div>
   );

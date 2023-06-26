@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useGetPokemonInfo} from '../api/hooks';
 
 interface PokemonInfoProps {
@@ -13,7 +13,6 @@ interface PokemonInfoProps {
 }
 
 const PokemonInfo = ({
-  clickedPokemonId,
   displayInfo,
   id,
   name,
@@ -21,8 +20,26 @@ const PokemonInfo = ({
   description,
   height,
   weight,
+  clickedPokemonId,
 }: PokemonInfoProps) => {
+  const {getPokemonInfo, data, error, loading} =
+    useGetPokemonInfo(clickedPokemonId);
+  useEffect(() => {
+    getPokemonInfo({
+      variables: {
+        id: clickedPokemonId,
+      },
+    });
+    console.log(data, error, loading);
+  }, [clickedPokemonId]);
 
+  if (loading) return <div>loadinggggg.......</div>;
+
+  const pokemon = data?.pokemon_v2_pokemon[0];
+  console.log(pokemon);
+  console.log(pokemon?.name);
+  
+  
   return (
     <div
       className={`h-max w-96 px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
@@ -32,8 +49,8 @@ const PokemonInfo = ({
       <div className='w-40'>
         <img src={img} alt='bulbasaur' className='' />
       </div>
-      <p className='text-sm  font-semibold text-gray-500'>#{id}</p>
-      <p className='font-bold text-lg text-gray-800'>{name}</p>
+      <p className='text-sm  font-semibold text-gray-500'>#{pokemon?.id}</p>
+      <p className='font-bold text-lg text-gray-800'>{pokemon?.name}</p>
       <div className='flex flex-wrap gap-4'>
         <p className='bg-grass px-3 py-2 border border-[#2DE4A0] rounded-md text-xs font-medium text-white'>
           Grass
@@ -55,13 +72,13 @@ const PokemonInfo = ({
           <div className='flex flex-col items-center gap-1'>
             <p className='font-semibold text-sm'>HEIGHT</p>
             <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
-              {height} meters
+              {pokemon?.height} meters
             </p>
           </div>
           <div className='flex flex-col items-center gap-1'>
             <p className='font-semibold text-sm'>WEIGHT</p>
             <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
-              {weight} kgs
+              {pokemon?.weight} kgs
             </p>
           </div>
         </div>

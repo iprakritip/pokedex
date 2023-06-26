@@ -1,4 +1,4 @@
-import {ApolloError, gql, useLazyQuery, useQuery} from '@apollo/client';
+import { gql, useLazyQuery, useQuery} from '@apollo/client';
 
 const GET_ALL_POKEMONS = gql`
   query GetAllPokemons {
@@ -16,14 +16,15 @@ const GET_ALL_POKEMONS = gql`
 `;
 
 const GET_POKEMON_INFO=gql`
-query GetPokemonInfo {
-  pokemon_v2_pokemon(where: {id: {_eq: 1}}) {
+query GetPokemonInfo ($id:Int!){
+  pokemon_v2_pokemon(where: {id: {_eq:$id}}) {
     id
     name
     height
     weight
-    pokemon_v2_pokemontypes(where: {id: {_eq: 1}}) {
+    pokemon_v2_pokemontypes{
       pokemon_v2_type {
+        id
         name
       }
     }
@@ -57,7 +58,7 @@ export const useGetAllPokemons = () => {
   return {error, loading, data};
 };
 
-export const useGetPokemonInfo=(clickedPokemonId:number)=>{
+export const useGetPokemonInfo=(pokeid:number)=>{
   const [getPokemonInfo,{error,loading,data}]=useLazyQuery(GET_POKEMON_INFO);
-  return{error,loading, data};
+  return{getPokemonInfo,error,loading, data};
 }

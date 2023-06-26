@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CharacterList from '../components/PokemonList';
+import PokemonList from '../components/PokemonList';
 import Navbar from '../components/Navbar';
 import Search from '../components/Search';
 import Menu from '../components/Menu';
@@ -18,7 +18,7 @@ const Home = () => {
       <Menu toggleMenu={toggleMenu} closeMenu={closeMenu} />
       <Navbar accessMenu={accessMenu} />
       <Search />
-      <CharacterList />
+      <PokemonList />
       <Footer />
     </div>
   );
