@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import { useGetPokemonInfo } from '../api/hooks';
+import {Link} from 'react-router-dom';
 import Type from '../components/Type';
 
 interface PokemonProps {
@@ -21,6 +20,10 @@ const handleClick=()=>{
   togglePokeInfo();
   changeSelectedPokemonId(id);
 }
+// const addDefaultSrc=(e: React.SyntheticEvent<HTMLImageElement, Event>)=>{
+//   const target = e.currentTarget as HTMLImageElement;
+//   target.src = 'https://static-00.iconduck.com/assets.00/blocked-icon-256x256-fxgkjvxb.png'
+// }
   return (
     <Link to={`/${name}`} className='relative w-[15%] h-[15rem] pt-28'>
       <div onClick={handleClick}>
@@ -31,6 +34,7 @@ const handleClick=()=>{
               '_'
             )}.gif`}
             alt={name}
+            // onError={(e)=>this.addDefaultSrc(e)}
           />
         </div>
         <div className='bg-white w-full relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8'>

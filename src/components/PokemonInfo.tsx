@@ -7,12 +7,16 @@ interface PokemonInfoProps {
   displayInfo: boolean;
   clickedPokemonId: number;
   closePokeInfo: () => void;
+  increaseClickedId: () => void;
+  decreaseClickedId: () => void;
 }
 
 const PokemonInfo = ({
   displayInfo,
   clickedPokemonId,
   closePokeInfo,
+  increaseClickedId,
+  decreaseClickedId,
 }: PokemonInfoProps) => {
   const {getPokemonInfo, data, error, loading} =
     useGetPokemonInfo(clickedPokemonId);
@@ -92,11 +96,11 @@ const PokemonInfo = ({
         </div>
         <div className='w-full'>
           {pokemon?.id === 1 ? (
-            <PokeInfoBtn />
+            <PokeInfoBtn label='Next' onClick={increaseClickedId} />
           ) : (
             <div className='flex gap-4 justify-between'>
-              <PokeInfoBtn />
-              <PokeInfoBtn />
+              <PokeInfoBtn label='Prev' onClick={decreaseClickedId} />
+              <PokeInfoBtn label='Next' onClick={increaseClickedId} />
             </div>
           )}
         </div>

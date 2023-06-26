@@ -11,6 +11,12 @@ const PokemonList = () => {
     // console.log(displayInfo);
 
   };
+  const increaseClickedId=()=>{
+    setClickedPokemonId(clickedPokemonId+1)
+  }
+  const decreaseClickedId=()=>{
+    setClickedPokemonId(clickedPokemonId-1)
+  }
   const closePokeInfo=()=>{
     setDisplayInfo(false);
   }
@@ -36,6 +42,8 @@ const PokemonList = () => {
         displayInfo={displayInfo}
         clickedPokemonId={clickedPokemonId}
         closePokeInfo={closePokeInfo}
+        increaseClickedId={increaseClickedId}
+        decreaseClickedId={decreaseClickedId}
       />
     </div>
   );
