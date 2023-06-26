@@ -29,7 +29,7 @@ const Type = ({typeName, typeId}: TypeProps) => {
       ${typeName === 'ghost' && 'bg-ghost border-ghost '} 
       px-3 py-2 border  rounded-md text-xs font-medium text-white`}
     >
-      {typeName}
+      {typeName[0].toUpperCase()+typeName.slice(1)}
     </button>
   );
 };

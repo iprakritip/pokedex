@@ -11,6 +11,9 @@ const PokemonList = () => {
     // console.log(displayInfo);
 
   };
+  const closePokeInfo=()=>{
+    setDisplayInfo(false);
+  }
   const changeSelectedPokemonId= (id:number)=>{
     setClickedPokemonId(id)
   }
@@ -31,14 +34,8 @@ const PokemonList = () => {
       />
       <PokemonInfo
         displayInfo={displayInfo}
-        id='001'
-        name='Bulbusaur'
-        img='https://www.pngmart.com/files/11/Pokemon-Bulbasaur-PNG-HD.png'
-        description='A strange seed was planted on its back at birth.The plant sprouts
-        and grows with this POKéMON.'
-        height='0.7'
-        weight='6.9'
         clickedPokemonId={clickedPokemonId}
+        closePokeInfo={closePokeInfo}
       />
     </div>
   );

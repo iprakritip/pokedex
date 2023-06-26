@@ -28,9 +28,15 @@ query GetPokemonInfo ($id:Int!){
         name
       }
     }
+    pokemon_v2_pokemonspecy {
+      pokemon_v2_pokemonspeciesflavortexts(limit: 1) {
+        flavor_text
+      }
+    }
   }
 }
 `
+
 
 export interface DATA {
   pokemon_v2_pokemon:{

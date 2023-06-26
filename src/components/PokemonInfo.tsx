@@ -1,26 +1,17 @@
 import React, {useEffect} from 'react';
 import {useGetPokemonInfo} from '../api/hooks';
+import Type from './Type';
 
 interface PokemonInfoProps {
   displayInfo: boolean;
-  id: string;
-  name: string;
-  img: string;
-  description: string;
-  height: string;
-  weight: string;
   clickedPokemonId: number;
+  closePokeInfo:()=>void
 }
 
 const PokemonInfo = ({
   displayInfo,
-  id,
-  name,
-  img,
-  description,
-  height,
-  weight,
   clickedPokemonId,
+  closePokeInfo
 }: PokemonInfoProps) => {
   const {getPokemonInfo, data, error, loading} =
     useGetPokemonInfo(clickedPokemonId);
@@ -36,28 +27,39 @@ const PokemonInfo = ({
   if (loading) return <div>loadinggggg.......</div>;
 
   const pokemon = data?.pokemon_v2_pokemon[0];
-  console.log(pokemon);
-  console.log(pokemon?.name);
-  
-  
+
+
   return (
     <div
       className={`h-max w-96 px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
         displayInfo ? 'flex' : 'hidden'
-      } flex-col items-center pt-8 gap-2`}
+      } flex-col items-center gap-2`}
     >
-      <div className='w-40'>
-        <img src={img} alt='bulbasaur' className='' />
+      <div className='w-full flex justify-end'>
+        <button className='text-xs text-gray-500 underline' onClick={closePokeInfo}>{`close>>`}</button>
+      </div>
+      <div className='w-28'>
+        <img
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
+          alt='bulbasaur'
+          className=''
+        />
       </div>
       <p className='text-sm  font-semibold text-gray-500'>#{pokemon?.id}</p>
-      <p className='font-bold text-lg text-gray-800'>{pokemon?.name}</p>
+      <p className='font-bold text-lg text-gray-800'>
+        {pokemon?.name.toUpperCase()}
+      </p>
       <div className='flex flex-wrap gap-4'>
-        <p className='bg-grass px-3 py-2 border border-[#2DE4A0] rounded-md text-xs font-medium text-white'>
-          Grass
-        </p>
-        <p className='bg-poison px-2 py-2 border border-[#A33EA1] rounded-md text-xs font-medium text-white'>
-          Poison
-        </p>
+        {pokemon?.pokemon_v2_pokemontypes.map((type: any) => {
+          console.log(type.pokemon_v2_type.name, type.pokemon_v2_type.id);
+          return (
+            <Type
+              key={type.pokemon_v2_type.id}
+              typeName={type.pokemon_v2_type.name}
+              typeId={type.pokemon_v2_type.id}
+            />
+          );
+        })}
       </div>
       <div className='flex flex-col gap-6 items-center'>
         <div className='flex flex-col items-center gap-1'>
@@ -65,7 +67,10 @@ const PokemonInfo = ({
             {'Pokédex Entry'.toUpperCase()}
           </p>
           <p className='text-sm font-medium text-gray-800 text-center'>
-            {description}
+            {
+              pokemon?.pokemon_v2_pokemonspecy
+                .pokemon_v2_pokemonspeciesflavortexts[0].flavor_text
+            }
           </p>
         </div>
         <div className='flex gap-4 justify-center'>
