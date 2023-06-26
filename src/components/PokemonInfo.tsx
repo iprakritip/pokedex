@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
 import {useGetPokemonInfo} from '../api/hooks';
+import PokeInfoBtn from './PokeInfoBtn';
 import Type from './Type';
 
 interface PokemonInfoProps {
   displayInfo: boolean;
   clickedPokemonId: number;
-  closePokeInfo:()=>void
+  closePokeInfo: () => void;
 }
 
 const PokemonInfo = ({
   displayInfo,
   clickedPokemonId,
-  closePokeInfo
+  closePokeInfo,
 }: PokemonInfoProps) => {
   const {getPokemonInfo, data, error, loading} =
     useGetPokemonInfo(clickedPokemonId);
@@ -28,7 +29,6 @@ const PokemonInfo = ({
 
   const pokemon = data?.pokemon_v2_pokemon[0];
 
-
   return (
     <div
       className={`h-max w-96 px-4 pb-4 bg-white shadow border rounded-lg fixed right-0 ${
@@ -36,11 +36,14 @@ const PokemonInfo = ({
       } flex-col items-center gap-2`}
     >
       <div className='w-full flex justify-end'>
-        <button className='text-xs text-gray-500 underline' onClick={closePokeInfo}>{`close>>`}</button>
+        <button
+          className='text-xs text-gray-500 underline'
+          onClick={closePokeInfo}
+        >{`close>>`}</button>
       </div>
       <div className='w-28'>
         <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon?.id}.png`}
           alt='bulbasaur'
           className=''
         />
@@ -87,15 +90,16 @@ const PokemonInfo = ({
             </p>
           </div>
         </div>
-        <button className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'>
-          Ivysaur
-          <img
-            src='https://projectpokemon.org/images/normal-sprite/ivysaur.gif'
-            alt='ivysaur'
-            className='w-7'
-          />
-          <p className='font-semibold text-lg'>{`>`}</p>
-        </button>
+        <div className='w-full'>
+          {pokemon?.id === 1 ? (
+            <PokeInfoBtn />
+          ) : (
+            <div className='flex gap-4 justify-between'>
+              <PokeInfoBtn />
+              <PokeInfoBtn />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
