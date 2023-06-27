@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Outlet, useOutletContext} from 'react-router-dom';
-import {useGetSearchedPokemons} from '../api/hooks';
+import {useGetAllPokemons} from '../api/hooks';
 import Pokemons from './Pokemons';
 
 const PokemonList = () => {
@@ -33,7 +33,7 @@ const PokemonList = () => {
   };
 
 
-    const {data, error, loading, fetchMore} = useGetSearchedPokemons(offset, searchInput);
+    const {data, error, loading, fetchMore} = useGetAllPokemons(offset, searchInput);
  
 console.log(data);
 
