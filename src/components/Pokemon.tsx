@@ -20,10 +20,6 @@ const handleClick=()=>{
   togglePokeInfo();
   changeSelectedPokemonId(id);
 }
-// const addDefaultSrc=(e: React.SyntheticEvent<HTMLImageElement, Event>)=>{
-//   const target = e.currentTarget as HTMLImageElement;
-//   target.src = 'https://static-00.iconduck.com/assets.00/blocked-icon-256x256-fxgkjvxb.png'
-// }
   return (
     <Link to={`/${name}`} className='relative w-[15%] h-[15rem] pt-28'>
       <div onClick={handleClick}>

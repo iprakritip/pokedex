@@ -13,8 +13,14 @@ const Router = () => {
       errorElement: <Error />,
       children: [
         {
-          path: '/:name',
+          path: '/',
           element: <PokemonList />,
+          children: [
+            {
+              path: '/:name',
+              element: <PokemonInfo />,
+            },
+          ],
         },
       ],
     },

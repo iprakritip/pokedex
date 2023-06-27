@@ -15,6 +15,21 @@ const GET_ALL_POKEMONS = gql`
   }
 `;
 
+// const GET_SEARCHED_POKEMONS = gql`
+//   query GetAllPokemons($offset:Int!, $input:String!) {
+//     pokemon_v2_pokemon(limit: 100, offset:$offset) (where: {name: {_iregex: "saur"}})   {
+//       id
+//       name
+//       pokemon_v2_pokemontypes {
+//         pokemon_v2_type {
+//           id
+//           name
+//         }
+//       }
+//     }
+//   }
+// `;
+
 const GET_POKEMON_INFO=gql`
 query GetPokemonInfo ($id:Int!){
   pokemon_v2_pokemon(where: {id: {_eq:$id}}) {
@@ -53,11 +68,6 @@ export interface DATA {
 
 }
 
-// interface ALL_POKEMONS_DATA {
-//   error: ApolloError | undefined;
-//   loading: boolean;
-//   data: POKEMON_DATA;
-// }
 
 export const useGetAllPokemons = (offset:number) => {
   const {error, loading, data,fetchMore} = useQuery(GET_ALL_POKEMONS,{
@@ -67,6 +77,16 @@ export const useGetAllPokemons = (offset:number) => {
   });
   return {error, loading, data,fetchMore};
 };
+
+// export const useGetSearchedPokemons = (offset:number, input:string) => {
+//   const {error, loading, data,fetchMore} = useQuery(GET_ALL_POKEMONS,{
+//     variables:{
+//       offset:offset,
+//       input:input
+//     }
+//   });
+//   return {error, loading, data,fetchMore};
+// };
 
 export const useGetPokemonInfo=(pokeid:number)=>{
   const [getPokemonInfo,{error,loading,data}]=useLazyQuery(GET_POKEMON_INFO);

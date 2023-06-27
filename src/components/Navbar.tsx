@@ -5,9 +5,10 @@ import Search from './Search';
 
 interface NavbarProps {
   accessMenu: () => void;
+  changeSearchInput:(input:string)=>void
 }
 
-const Navbar = ({accessMenu}: NavbarProps) => {
+const Navbar = ({accessMenu,changeSearchInput}: NavbarProps) => {
   return (
     <div className='w-screen bg-slate-100 fixed top-0 z-20 '>
       <div className='flex justify-between items-center'>
@@ -22,7 +23,7 @@ const Navbar = ({accessMenu}: NavbarProps) => {
         </Link>
         <MenuIcon setToggleMenu={accessMenu} />
       </div>
-      <Search />
+      <Search changeSearchInput={changeSearchInput} />
     </div>
   );
 };

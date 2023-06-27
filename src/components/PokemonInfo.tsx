@@ -1,24 +1,31 @@
 import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useOutletContext} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
 import PokeInfoBtn from './PokeInfoBtn';
 import Type from './Type';
 
-interface PokemonInfoProps {
-  displayInfo: boolean;
-  clickedPokemonId: number;
-  closePokeInfo: () => void;
-  increaseClickedId: () => void;
-  decreaseClickedId: () => void;
-}
+// interface PokemonInfoProps {
+//   displayInfo: boolean;
+//   clickedPokemonId: number;
+//   closePokeInfo: () => void;
+//   increaseClickedId: () => void;
+//   decreaseClickedId: () => void;
+// }
 
-const PokemonInfo = ({
-  displayInfo,
-  clickedPokemonId,
-  closePokeInfo,
-  increaseClickedId,
-  decreaseClickedId,
-}: PokemonInfoProps) => {
+const PokemonInfo = () => {
+  const {
+    displayInfo,
+    clickedPokemonId,
+    closePokeInfo,
+    increaseClickedId,
+    decreaseClickedId,
+  } = useOutletContext<{
+    displayInfo: boolean;
+    clickedPokemonId: number;
+    closePokeInfo: () => void;
+    increaseClickedId: () => void;
+    decreaseClickedId: () => void;
+  }>();
   const {getPokemonInfo, data, error, loading} =
     useGetPokemonInfo(clickedPokemonId);
   useEffect(() => {
@@ -27,7 +34,7 @@ const PokemonInfo = ({
         id: clickedPokemonId,
       },
     });
-    console.log(data, error, loading);
+    // console.log(data, error, loading);
   }, [clickedPokemonId]);
 
   const pokemon = data?.pokemon_v2_pokemon[0];
@@ -39,7 +46,9 @@ const PokemonInfo = ({
       } flex flex-col items-center gap-2 transition-position duration-400 ease-in-out`}
     >
       {loading ? (
-        <div className='flex justify-center items-center h-full w-full text-gray-500'>loadinggggg.......</div>
+        <div className='flex justify-center items-center h-full w-full text-gray-500'>
+          loadinggggg.......
+        </div>
       ) : (
         <div className='flex flex-col items-center gap-2'>
           <div className='w-full flex justify-end'>
