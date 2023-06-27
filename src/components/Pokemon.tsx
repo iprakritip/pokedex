@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import Type from '../components/Type';
 
 interface PokemonProps {
@@ -12,14 +12,23 @@ interface PokemonProps {
       name: string;
     };
   }[];
-  changeSelectedPokemonId:(id:number)=>void
+  changeSelectedPokemonId: (id: number) => void;
 }
 
-const Pokemon = ({togglePokeInfo, id, name, types,changeSelectedPokemonId}: PokemonProps) => {
-const handleClick=()=>{
-  togglePokeInfo();
-  changeSelectedPokemonId(id);
-}
+const Pokemon = ({
+  togglePokeInfo,
+  id,
+  name,
+  types,
+  changeSelectedPokemonId,
+}: PokemonProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    togglePokeInfo();
+    changeSelectedPokemonId(id);
+    // navigate(`/pokedex/${name}`,{replace:false});
+  };
   return (
     <Link to={`/${name}`} className='relative w-[15%] h-[15rem] pt-28'>
       <div onClick={handleClick}>
