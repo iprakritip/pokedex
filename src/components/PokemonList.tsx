@@ -37,7 +37,7 @@ const PokemonList = () => {
   if (error) return <div>error....</div>;
 
   return (
-    <div className='flex w-screen mt-6'>
+    <div className='flex w-screen mt-40'>
       <Pokemons
         data={data}
         togglePokeInfo={togglePokeInfo}

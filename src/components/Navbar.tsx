@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar = ({accessMenu}: NavbarProps) => {
   return (
-    <div className='w-screen bg-slate-100 '>
+    <div className='w-screen bg-slate-100 fixed top-0 z-20 '>
       <div className='flex justify-between items-center'>
         <Link to='/'>
           <div className='w-48 cursor-pointer'>

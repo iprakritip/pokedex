@@ -23,7 +23,7 @@ const Pokemons = ({
     <div className='flex flex-col items-center gap-20'>
       <div
         className={`flex flex-wrap gap-6 justify-between ${
-          displayInfo ? 'mr-96' : ''
+          displayInfo ? 'mr-[25rem]' : ''
         }`}
       >
         {data.pokemon_v2_pokemon.map((pokemon) => {
