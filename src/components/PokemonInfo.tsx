@@ -12,24 +12,13 @@ interface PokemonInfoProps {
   decreaseClickedId: () => void;
 }
 
-const PokemonInfo = ({displayInfo,
+const PokemonInfo = ({
+  displayInfo,
   clickedPokemonId,
   closePokeInfo,
   increaseClickedId,
-  decreaseClickedId,}:PokemonInfoProps) => {
-  // const {
-  //   displayInfo,
-  //   clickedPokemonId,
-  //   closePokeInfo,
-  //   increaseClickedId,
-  //   decreaseClickedId,
-  // } = useOutletContext<{
-  //   displayInfo: boolean;
-  //   clickedPokemonId: number;
-  //   closePokeInfo: () => void;
-  //   increaseClickedId: () => void;
-  //   decreaseClickedId: () => void;
-  // }>();
+  decreaseClickedId,
+}: PokemonInfoProps) => {
   const {getPokemonInfo, data, error, loading} =
     useGetPokemonInfo(clickedPokemonId);
   useEffect(() => {
@@ -76,7 +65,7 @@ const PokemonInfo = ({displayInfo,
           </p>
           <div className='flex flex-wrap gap-4'>
             {pokemon?.pokemon_v2_pokemontypes.map((type: any) => {
-              console.log(type.pokemon_v2_type.name, type.pokemon_v2_type.id);
+              // console.log(type.pokemon_v2_type.name, type.pokemon_v2_type.id);
               return (
                 <Type
                   key={type.pokemon_v2_type.id}
