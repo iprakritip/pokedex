@@ -9,7 +9,7 @@ interface MenuProps {
 const Menu = ({toggleMenu, closeMenu}: MenuProps) => {
   return (
     <div
-      className={`h-screen w-[30vw] bg-white z-10 fixed ${
+      className={`h-screen w-[30vw] bg-white z-20 fixed ${
         toggleMenu ? 'top-0 left-0' : 'left-[-30%]'
       } transition-position duration-500 ease-in-out flex flex-col gap-8 items-center`}
     >
