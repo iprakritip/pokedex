@@ -39,7 +39,7 @@ const PokemonInfo = ({
       } flex flex-col items-center gap-2 transition-position duration-400 ease-in-out`}
     >
       {loading ? (
-        <div className='flex justify-center items-center h-full w-full'>loadinggggg.......</div>
+        <div className='flex justify-center items-center h-full w-full text-gray-500'>loadinggggg.......</div>
       ) : (
         <div className='flex flex-col items-center gap-2'>
           <div className='w-full flex justify-end'>
