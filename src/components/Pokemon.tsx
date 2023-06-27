@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useSearchParams} from 'react-router-dom';
+import {Link, useNavigate, useSearchParams} from 'react-router-dom';
 import Type from '../components/Type';
 
 interface PokemonProps {
@@ -22,12 +22,14 @@ const Pokemon = ({
   types,
   changeSelectedPokemonId,
 }: PokemonProps) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  searchParams.set('pokedex', `${name}`);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     togglePokeInfo();
     changeSelectedPokemonId(id);
-    setSearchParams(`/pokedex/${name}`);
+    navigate(`?${searchParams.toString()}`)
   };
 
   return (
