@@ -19,12 +19,12 @@ const Pokemons = ({
 }: PokemonsProps) => {
   return (
     <div
-      className={`flex flex-col items-center gap-28 min-h-screen ${
+      className={`pokemons flex flex-col items-center gap-28 min-h-screen ${
         displayInfo ? 'mr-[25rem] w-max' : 'w-full'
       }`}
     >
       <div className={`flex flex-wrap gap-6 justify-between ${
-        displayInfo ? 'mr-[25rem] w-max' : 'w-full'
+        displayInfo ? 'mr-[25rem] w-[68vw]' : 'w-full'
       }`}>
         {data.pokemon_v2_pokemon.map((pokemon) => {
           const types = pokemon.pokemon_v2_pokemontypes;

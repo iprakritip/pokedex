@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Type from '../components/Type';
 
 interface PokemonProps {
@@ -12,25 +12,20 @@ interface PokemonProps {
       name: string;
     };
   }[];
-  changeSelectedPokemonId: (id: number) => void;
+  changeSelectedPokemonId:(id:number)=>void
 }
 
-const Pokemon = ({
-  togglePokeInfo,
-  id,
-  name,
-  types,
-  changeSelectedPokemonId,
-}: PokemonProps) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    togglePokeInfo();
-    changeSelectedPokemonId(id);
-    // navigate(`/pokedex/${name}`,{replace:false});
-  };
+const Pokemon = ({togglePokeInfo, id, name, types,changeSelectedPokemonId}: PokemonProps) => {
+const handleClick=()=>{
+  togglePokeInfo();
+  changeSelectedPokemonId(id);
+}
+// const addDefaultSrc=(e: React.SyntheticEvent<HTMLImageElement, Event>)=>{
+//   const target = e.currentTarget as HTMLImageElement;
+//   target.src = 'https://static-00.iconduck.com/assets.00/blocked-icon-256x256-fxgkjvxb.png'
+// }
   return (
-    <Link to={`/${name}`} className='relative w-[15%] h-[15rem] pt-28'>
+    <Link to={`/${name}`} className='pokemon relative w-[15%] h-[15rem] pt-28 '>
       <div onClick={handleClick}>
         <div className='absolute w-full bottom-[45%] z-10 flex justify-center'>
           <img
@@ -42,7 +37,7 @@ const Pokemon = ({
             // onError={(e)=>this.addDefaultSrc(e)}
           />
         </div>
-        <div className='bg-white w-full relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8'>
+        <div className=' w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8'>
           <p className='text-xs  font-semibold text-gray-500'>#{id}</p>
           <p className='font-bold text-gray-800 text-sm'>
             {name.toUpperCase()}
