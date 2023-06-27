@@ -3,7 +3,7 @@ import SVG from './SVG';
 
 const Search = () => {
   return (
-    <div className='flex w-screen justify-between relative mt-8'>
+    <div className='flex w-screen justify-between relative mt-8 mb-4'>
       <input
         type='text'
         placeholder='Search'

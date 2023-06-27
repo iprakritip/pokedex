@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import MenuIcon from './MenuIcon';
+import Search from './Search';
 
 interface NavbarProps {
   accessMenu: () => void;
@@ -8,17 +9,20 @@ interface NavbarProps {
 
 const Navbar = ({accessMenu}: NavbarProps) => {
   return (
-    <div className='w-screen flex justify-between items-center'>
-      <Link to='/'>
-      <div className='w-48 cursor-pointer'>
-        <img
-          className='w-full'
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
-          alt='poke-logo'
-        />
+    <div className='w-screen bg-slate-100 '>
+      <div className='flex justify-between items-center'>
+        <Link to='/'>
+          <div className='w-48 cursor-pointer'>
+            <img
+              className='w-full'
+              src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
+              alt='poke-logo'
+            />
+          </div>
+        </Link>
+        <MenuIcon setToggleMenu={accessMenu} />
       </div>
-      </Link>
-      <MenuIcon setToggleMenu={accessMenu} />
+      <Search />
     </div>
   );
 };
