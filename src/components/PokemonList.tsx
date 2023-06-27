@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Outlet, useOutletContext} from 'react-router-dom';
 import {useGetAllPokemons} from '../api/hooks';
+import useDebouncer from '../hooks/useDebouncer';
 import Pokemons from './Pokemons';
 
 const PokemonList = () => {
@@ -31,11 +32,25 @@ const PokemonList = () => {
   const changeSelectedPokemonId = (id: number) => {
     setClickedPokemonId(id);
   };
+  const debouncedSearch = useDebouncer(searchInput, 500);
+  // console.log(debouncedSearch);
+  
+  const getData = () => {
+    const {data, error, loading, fetchMore} = useGetAllPokemons(
+      offset,
+      debouncedSearch
+    );
+    return {data, error, loading, fetchMore};
+  };
 
+  // useEffect(() => {
+  //   debouncedSearch();
+  // }, [searchInput]);
+  // console.log(debouncedSearch);
 
-    const {data, error, loading, fetchMore} = useGetAllPokemons(offset, searchInput);
- 
-console.log(data);
+  const {data, error, loading, fetchMore} = getData();
+
+  // console.log(data);
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error....</div>;
