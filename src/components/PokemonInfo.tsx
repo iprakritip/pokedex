@@ -10,6 +10,7 @@ interface PokemonInfoProps {
   closePokeInfo: () => void;
   increaseClickedId: () => void;
   decreaseClickedId: () => void;
+  togglePokeInfo: () => void;
 }
 
 const PokemonInfo = ({
@@ -18,16 +19,23 @@ const PokemonInfo = ({
   closePokeInfo,
   increaseClickedId,
   decreaseClickedId,
+  togglePokeInfo,
 }: PokemonInfoProps) => {
-  const {getPokemonInfo, data, error, loading} =
-    useGetPokemonInfo(clickedPokemonId);
+  const storedId = Number(localStorage.getItem('id'));
+  if (storedId) {
+    togglePokeInfo();
+  }
+
+  const {getPokemonInfo, data, error, loading} = useGetPokemonInfo(
+    storedId ? storedId : clickedPokemonId
+  );
+
   useEffect(() => {
     getPokemonInfo({
       variables: {
         id: clickedPokemonId,
       },
     });
-    // console.log(data, error, loading);
   }, [clickedPokemonId]);
 
   const pokemon = data?.pokemon_v2_pokemon[0];
@@ -48,7 +56,10 @@ const PokemonInfo = ({
             <Link to='/'>
               <button
                 className='text-xs text-gray-500 underline'
-                onClick={closePokeInfo}
+                onClick={() => {
+                  closePokeInfo;
+                  localStorage.removeItem('id');
+                }}
               >{`close>>`}</button>
             </Link>
           </div>

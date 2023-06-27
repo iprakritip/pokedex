@@ -17,7 +17,6 @@ const Home = () => {
   const changeSearchInput = (input: string) => {
     setSearchInput(input);
   };
-  // console.log(searchInput);
   
   return (
     <div className='relative'>

@@ -8,6 +8,7 @@ interface PokemonsProps {
   displayInfo: boolean;
   changeSelectedPokemonId: (id: number) => void;
   increaseOffset: () => void;
+  clickedPokemonId:number
 }
 
 const Pokemons = ({
@@ -16,6 +17,7 @@ const Pokemons = ({
   displayInfo,
   changeSelectedPokemonId,
   increaseOffset,
+  clickedPokemonId
 }: PokemonsProps) => {
   return (
     <div
@@ -36,6 +38,7 @@ const Pokemons = ({
               types={types}
               togglePokeInfo={togglePokeInfo}
               changeSelectedPokemonId={changeSelectedPokemonId}
+              clickedPokemonId={clickedPokemonId}
             />
           );
         })}

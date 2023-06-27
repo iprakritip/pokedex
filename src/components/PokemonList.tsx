@@ -5,15 +5,14 @@ import useDebouncer from '../hooks/useDebouncer';
 import PokemonInfo from './PokemonInfo';
 import Pokemons from './Pokemons';
 
-
 const PokemonList = () => {
   const {searchInput} = useOutletContext<{
     searchInput: string;
   }>();
   const [displayInfo, setDisplayInfo] = useState<boolean>(false);
-  const [clickedPokemonId, setClickedPokemonId] = useState(0);
+  const [clickedPokemonId, setClickedPokemonId] = useState(Number(localStorage.getItem('id')));
   const [offset, setOffset] = useState(0);
-  // console.log(displayInfo);
+
 
   const increaseOffset = () => {
     setOffset((prevValue) => prevValue + 24);
@@ -35,8 +34,7 @@ const PokemonList = () => {
     setClickedPokemonId(id);
   };
   const debouncedSearch = useDebouncer(searchInput, 500);
-  // console.log(debouncedSearch);
-  
+
   const getData = () => {
     const {data, error, loading, fetchMore} = useGetAllPokemons(
       offset,
@@ -45,14 +43,8 @@ const PokemonList = () => {
     return {data, error, loading, fetchMore};
   };
 
-  // useEffect(() => {
-  //   debouncedSearch();
-  // }, [searchInput]);
-  // console.log(debouncedSearch);
-
   const {data, error, loading, fetchMore} = getData();
 
-  // console.log(data);
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error....</div>;
@@ -65,6 +57,7 @@ const PokemonList = () => {
         displayInfo={displayInfo}
         changeSelectedPokemonId={changeSelectedPokemonId}
         increaseOffset={increaseOffset}
+        clickedPokemonId={clickedPokemonId}
       />
       <PokemonInfo
         displayInfo={displayInfo}
@@ -72,6 +65,7 @@ const PokemonList = () => {
         closePokeInfo={closePokeInfo}
         increaseClickedId={increaseClickedId}
         decreaseClickedId={decreaseClickedId}
+        togglePokeInfo={togglePokeInfo}
       />
       {/* <Outlet
         context={{

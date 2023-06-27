@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link, useNavigate, useSearchParams} from 'react-router-dom';
 import Type from '../components/Type';
 
@@ -13,6 +13,7 @@ interface PokemonProps {
     };
   }[];
   changeSelectedPokemonId: (id: number) => void;
+  clickedPokemonId:number|undefined
 }
 
 const Pokemon = ({
@@ -21,6 +22,7 @@ const Pokemon = ({
   name,
   types,
   changeSelectedPokemonId,
+  clickedPokemonId
 }: PokemonProps) => {
   const [searchParams] = useSearchParams();
   searchParams.set('pokedex', `${name}`);
@@ -29,8 +31,11 @@ const Pokemon = ({
   const handleClick = () => {
     togglePokeInfo();
     changeSelectedPokemonId(id);
-    navigate(`?${searchParams.toString()}`)
+    navigate(`?${searchParams.toString()}`);
   };
+  useEffect(() => {
+    localStorage.setItem('id', `${clickedPokemonId}`);
+  }, [clickedPokemonId]);
 
   return (
     <div
