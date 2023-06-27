@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {Outlet, useOutletContext} from 'react-router-dom';
+import React, {useState} from 'react';
+import {useOutletContext} from 'react-router-dom';
 import {useGetAllPokemons} from '../api/hooks';
 import useDebouncer from '../hooks/useDebouncer';
+import PokemonInfo from './PokemonInfo';
 import Pokemons from './Pokemons';
+
 
 const PokemonList = () => {
   const {searchInput} = useOutletContext<{
@@ -64,14 +66,14 @@ const PokemonList = () => {
         changeSelectedPokemonId={changeSelectedPokemonId}
         increaseOffset={increaseOffset}
       />
-      {/* <PokemonInfo
+      <PokemonInfo
         displayInfo={displayInfo}
         clickedPokemonId={clickedPokemonId}
         closePokeInfo={closePokeInfo}
         increaseClickedId={increaseClickedId}
         decreaseClickedId={decreaseClickedId}
-      /> */}
-      <Outlet
+      />
+      {/* <Outlet
         context={{
           displayInfo,
           clickedPokemonId,
@@ -79,7 +81,7 @@ const PokemonList = () => {
           increaseClickedId,
           decreaseClickedId,
         }}
-      />
+      /> */}
     </div>
   );
 };

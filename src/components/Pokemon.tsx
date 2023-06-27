@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useSearchParams} from 'react-router-dom';
 import Type from '../components/Type';
 
 interface PokemonProps {
@@ -12,21 +12,30 @@ interface PokemonProps {
       name: string;
     };
   }[];
-  changeSelectedPokemonId:(id:number)=>void
+  changeSelectedPokemonId: (id: number) => void;
 }
 
-const Pokemon = ({togglePokeInfo, id, name, types,changeSelectedPokemonId}: PokemonProps) => {
-const handleClick=()=>{
-  togglePokeInfo();
-  changeSelectedPokemonId(id);
-}
-// const addDefaultSrc=(e: React.SyntheticEvent<HTMLImageElement, Event>)=>{
-//   const target = e.currentTarget as HTMLImageElement;
-//   target.src = 'https://static-00.iconduck.com/assets.00/blocked-icon-256x256-fxgkjvxb.png'
-// }
+const Pokemon = ({
+  togglePokeInfo,
+  id,
+  name,
+  types,
+  changeSelectedPokemonId,
+}: PokemonProps) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleClick = () => {
+    togglePokeInfo();
+    changeSelectedPokemonId(id);
+    setSearchParams(`/pokedex/${name}`)
+  };
+  // const addDefaultSrc=(e: React.SyntheticEvent<HTMLImageElement, Event>)=>{
+  //   const target = e.currentTarget as HTMLImageElement;
+  //   target.src = 'https://static-00.iconduck.com/assets.00/blocked-icon-256x256-fxgkjvxb.png'
+  // }
   return (
-    <Link to={`/${name}`} className='pokemon relative w-[15%] h-[15rem] pt-28 '>
-      <div onClick={handleClick}>
+    // <Link to={`/${name}`} >
+      <div onClick={handleClick} className='pokemon relative w-[15%] h-[15rem] pt-28 '>
         <div className='absolute w-full bottom-[45%] z-10 flex justify-center'>
           <img
             src={`https://projectpokemon.org/images/normal-sprite/${name.replace(
@@ -55,7 +64,7 @@ const handleClick=()=>{
           </div>
         </div>
       </div>
-    </Link>
+    // </Link>
   );
 };
 

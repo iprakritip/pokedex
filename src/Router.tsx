@@ -15,12 +15,12 @@ const Router = () => {
         {
           path: '/',
           element: <PokemonList />,
-          children: [
-            {
-              path: '/:name',
-              element: <PokemonInfo />,
-            },
-          ],
+          // children: [
+          //   {
+          //     path: '/:name',
+          //     element: <PokemonInfo />,
+          //   },
+          // ],
         },
       ],
     },

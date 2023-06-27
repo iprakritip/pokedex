@@ -4,28 +4,32 @@ import {useGetPokemonInfo} from '../api/hooks';
 import PokeInfoBtn from './PokeInfoBtn';
 import Type from './Type';
 
-// interface PokemonInfoProps {
-//   displayInfo: boolean;
-//   clickedPokemonId: number;
-//   closePokeInfo: () => void;
-//   increaseClickedId: () => void;
-//   decreaseClickedId: () => void;
-// }
+interface PokemonInfoProps {
+  displayInfo: boolean;
+  clickedPokemonId: number;
+  closePokeInfo: () => void;
+  increaseClickedId: () => void;
+  decreaseClickedId: () => void;
+}
 
-const PokemonInfo = () => {
-  const {
-    displayInfo,
-    clickedPokemonId,
-    closePokeInfo,
-    increaseClickedId,
-    decreaseClickedId,
-  } = useOutletContext<{
-    displayInfo: boolean;
-    clickedPokemonId: number;
-    closePokeInfo: () => void;
-    increaseClickedId: () => void;
-    decreaseClickedId: () => void;
-  }>();
+const PokemonInfo = ({displayInfo,
+  clickedPokemonId,
+  closePokeInfo,
+  increaseClickedId,
+  decreaseClickedId,}:PokemonInfoProps) => {
+  // const {
+  //   displayInfo,
+  //   clickedPokemonId,
+  //   closePokeInfo,
+  //   increaseClickedId,
+  //   decreaseClickedId,
+  // } = useOutletContext<{
+  //   displayInfo: boolean;
+  //   clickedPokemonId: number;
+  //   closePokeInfo: () => void;
+  //   increaseClickedId: () => void;
+  //   decreaseClickedId: () => void;
+  // }>();
   const {getPokemonInfo, data, error, loading} =
     useGetPokemonInfo(clickedPokemonId);
   useEffect(() => {
