@@ -17,13 +17,13 @@ const Home = () => {
   const changeSearchInput = (input: string) => {
     setSearchInput(input);
   };
-  console.log(searchInput);
+  // console.log(searchInput);
   
   return (
     <div className='relative'>
       <Menu toggleMenu={toggleMenu} closeMenu={closeMenu} />
       <Navbar accessMenu={accessMenu} changeSearchInput={changeSearchInput} />
-      <Outlet />
+      <Outlet context={{searchInput}} />
       <Footer />
     </div>
   );

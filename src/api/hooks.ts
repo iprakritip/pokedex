@@ -1,23 +1,8 @@
 import { gql, useLazyQuery, useQuery} from '@apollo/client';
 
-const GET_ALL_POKEMONS = gql`
-  query GetAllPokemons($offset:Int!) {
-    pokemon_v2_pokemon(limit: 100, offset:$offset)  {
-      id
-      name
-      pokemon_v2_pokemontypes {
-        pokemon_v2_type {
-          id
-          name
-        }
-      }
-    }
-  }
-`;
-
-// const GET_SEARCHED_POKEMONS = gql`
-//   query GetAllPokemons($offset:Int!, $input:String!) {
-//     pokemon_v2_pokemon(limit: 100, offset:$offset) (where: {name: {_iregex: "saur"}})   {
+// const GET_ALL_POKEMONS = gql`
+//   query GetAllPokemons($offset:Int!) {
+//     pokemon_v2_pokemon(limit: 100, offset:$offset)  {
 //       id
 //       name
 //       pokemon_v2_pokemontypes {
@@ -29,6 +14,21 @@ const GET_ALL_POKEMONS = gql`
 //     }
 //   }
 // `;
+
+const GET_SEARCHED_POKEMONS = gql`
+  query GetAllPokemons($offset:Int!, $input:String!) {
+    pokemon_v2_pokemon(limit: 100, offset:$offset, where: {name: {_iregex: $input}})   {
+      id
+      name
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
 
 const GET_POKEMON_INFO=gql`
 query GetPokemonInfo ($id:Int!){
@@ -69,24 +69,24 @@ export interface DATA {
 }
 
 
-export const useGetAllPokemons = (offset:number) => {
-  const {error, loading, data,fetchMore} = useQuery(GET_ALL_POKEMONS,{
-    variables:{
-      offset:offset
-    }
-  });
-  return {error, loading, data,fetchMore};
-};
-
-// export const useGetSearchedPokemons = (offset:number, input:string) => {
+// export const useGetAllPokemons = (offset:number) => {
 //   const {error, loading, data,fetchMore} = useQuery(GET_ALL_POKEMONS,{
 //     variables:{
-//       offset:offset,
-//       input:input
+//       offset:offset
 //     }
 //   });
 //   return {error, loading, data,fetchMore};
 // };
+
+export const useGetSearchedPokemons = (offset:number, input:string) => {
+  const {error, loading, data,fetchMore} = useQuery(GET_SEARCHED_POKEMONS,{
+    variables:{
+      offset:offset,
+      input:input
+    }
+  });
+  return {error, loading, data,fetchMore};
+};
 
 export const useGetPokemonInfo=(pokeid:number)=>{
   const [getPokemonInfo,{error,loading,data}]=useLazyQuery(GET_POKEMON_INFO);

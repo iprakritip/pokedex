@@ -43,7 +43,7 @@ const PokemonInfo = () => {
     <div
       className={`h-[75vh] w-96 px-4 pb-4  bg-white shadow border rounded-lg fixed top-40  ${
         displayInfo ? 'right-0' : 'right-[-25rem]'
-      } flex flex-col items-center gap-2 transition-position duration-400 ease-in-out`}
+      } flex flex-col items-center gap-2 transition-position duration-400 z-20 ease-in-out`}
     >
       {loading ? (
         <div className='flex justify-center items-center h-full w-full text-gray-500'>

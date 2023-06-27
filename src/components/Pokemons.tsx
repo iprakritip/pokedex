@@ -17,15 +17,13 @@ const Pokemons = ({
   changeSelectedPokemonId,
   increaseOffset,
 }: PokemonsProps) => {
-  const [pageNumber, setPageNumber] = useState(1);
-// const allData=[]
   return (
-    <div className='flex flex-col items-center gap-20'>
-      <div
-        className={`flex flex-wrap gap-6 justify-between ${
-          displayInfo ? 'mr-[25rem]' : ''
-        }`}
-      >
+    <div
+      className={`flex flex-col items-center gap-28 w-full min-h-screen ${
+        displayInfo ? 'mr-[25rem]' : 'w-full'
+      }`}
+    >
+      <div className={`flex flex-wrap gap-6 justify-between `}>
         {data.pokemon_v2_pokemon.map((pokemon) => {
           const types = pokemon.pokemon_v2_pokemontypes;
           return (
@@ -41,7 +39,7 @@ const Pokemons = ({
         })}
       </div>
       <button
-        className='bg-pink-600 text-white w-[10%] text-sm px-6 py-2 border rounded-lg'
+        className='bg-pink-600 border border-pink-600 text-white w-[14%] text-sm px-6 py-2 rounded-lg'
         onClick={increaseOffset}
       >
         Load more

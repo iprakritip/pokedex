@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {Outlet} from 'react-router-dom';
-import {useGetAllPokemons} from '../api/hooks';
-import PokemonInfo from './PokemonInfo';
+import React, {useState} from 'react';
+import {Outlet, useOutletContext} from 'react-router-dom';
+import {useGetSearchedPokemons} from '../api/hooks';
 import Pokemons from './Pokemons';
 
 const PokemonList = () => {
+  const {searchInput} = useOutletContext<{
+    searchInput: string;
+  }>();
   const [displayInfo, setDisplayInfo] = useState<boolean>(false);
   const [clickedPokemonId, setClickedPokemonId] = useState(0);
   const [offset, setOffset] = useState(0);
-  console.log(displayInfo);
+  // console.log(displayInfo);
 
   const increaseOffset = () => {
     setOffset((prevValue) => prevValue + 24);
@@ -30,7 +32,10 @@ const PokemonList = () => {
     setClickedPokemonId(id);
   };
 
-  const {data, error, loading, fetchMore} = useGetAllPokemons(offset);
+
+    const {data, error, loading, fetchMore} = useGetSearchedPokemons(offset, searchInput);
+ 
+console.log(data);
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error....</div>;
