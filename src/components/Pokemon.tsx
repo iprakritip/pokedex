@@ -29,12 +29,8 @@ const Pokemon = ({
     changeSelectedPokemonId(id);
     setSearchParams(`/pokedex/${name}`)
   };
-  // const addDefaultSrc=(e: React.SyntheticEvent<HTMLImageElement, Event>)=>{
-  //   const target = e.currentTarget as HTMLImageElement;
-  //   target.src = 'https://static-00.iconduck.com/assets.00/blocked-icon-256x256-fxgkjvxb.png'
-  // }
+
   return (
-    // <Link to={`/${name}`} >
       <div onClick={handleClick} className='pokemon relative w-[15%] h-[15rem] pt-28 '>
         <div className='absolute w-full bottom-[45%] z-10 flex justify-center'>
           <img
@@ -43,7 +39,6 @@ const Pokemon = ({
               '_'
             )}.gif`}
             alt={name}
-            // onError={(e)=>this.addDefaultSrc(e)}
           />
         </div>
         <div className=' w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8'>
@@ -64,7 +59,6 @@ const Pokemon = ({
           </div>
         </div>
       </div>
-    // </Link>
   );
 };
 
