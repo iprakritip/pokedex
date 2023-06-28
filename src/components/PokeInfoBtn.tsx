@@ -12,12 +12,6 @@ const PokeInfoBtn = ({label, onClick}: PokeInfoBtnProps) => {
       onClick={onClick}
     >
       {label}
-      {/* <img
-        src='https://projectpokemon.org/images/normal-sprite/ivysaur.gif'
-        alt='ivysaur'
-        className='w-7'
-      /> */}
-      {/* <p className='font-semibold text-lg'>{`>`}</p> */}
     </button>
   );
 };
