@@ -235,5 +235,8 @@ describe('Pokemon List', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-//   
+  test('should display search results', async () => {
+    render(SearchTestComponent);
+    expect(await screen.findByText(/VENUSAUR-MEGA/i)).toBeInTheDocument();
+  });
 });
