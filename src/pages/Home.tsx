@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div className='relative'>
       <Menu toggleMenu={toggleMenu} closeMenu={closeMenu} />
-      <Navbar accessMenu={accessMenu} changeSearchInput={changeSearchInput} />
+      <Navbar accessMenu={accessMenu} changeSearchInput={changeSearchInput}  />
       <Outlet context={{searchInput}} />
       <Footer />
     </div>

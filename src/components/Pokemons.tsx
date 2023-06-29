@@ -39,6 +39,7 @@ const Pokemons = ({
               togglePokeInfo={togglePokeInfo}
               changeSelectedPokemonId={changeSelectedPokemonId}
               clickedPokemonId={clickedPokemonId}
+              displayInfo={displayInfo}
             />
           );
         })}

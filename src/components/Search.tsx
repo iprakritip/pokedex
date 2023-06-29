@@ -7,7 +7,7 @@ interface SearchProps {
 
 const Search = ({changeSearchInput}: SearchProps) => {
   return (
-    <div className='flex w-screen justify-between relative mt-8 mb-4'>
+    <div className='flex w-screen justify-between relative mt-8 mb-4 px-4'>
       <input
         type='text'
         placeholder='Search'

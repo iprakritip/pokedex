@@ -5,15 +5,18 @@ import Search from './Search';
 
 interface NavbarProps {
   accessMenu: () => void;
-  changeSearchInput:(input:string)=>void
+  changeSearchInput: (input: string) => void;
 }
 
-const Navbar = ({accessMenu,changeSearchInput}: NavbarProps) => {
+const Navbar = ({accessMenu, changeSearchInput}: NavbarProps) => {
   return (
     <div className='w-screen bg-slate-100 fixed top-0 z-20 '>
       <div className='flex justify-between items-center'>
         <Link to='/'>
-          <div className='w-48 cursor-pointer'>
+          <div
+            className='w-48 cursor-pointer ml-4 mt-1'
+            onClick={() => changeSearchInput('')}
+          >
             <img
               className='w-full'
               src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
