@@ -63,6 +63,7 @@ const PokemonList = () => {
         clickedPokemonId={clickedPokemonId}
         offset={offset}
         decreaseOffset={decreaseOffset}
+        searchInput={searchInput}
       />
       <PokemonInfo
         displayInfo={displayInfo}

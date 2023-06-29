@@ -11,7 +11,7 @@ const Search = ({changeSearchInput}: SearchProps) => {
       <input
         type='text'
         placeholder='Search'
-        className='border w-full border-gray-300 h-10 rounded px-4 outline-none'
+        className='border w-full border-gray-300 h-10 rounded pl-4 pr-8 outline-none'
         onChange={(e) => changeSearchInput(e.target.value)}
       />
       <div className='absolute top-[25%]  right-[0.5%] '>

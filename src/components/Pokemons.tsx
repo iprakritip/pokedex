@@ -12,6 +12,7 @@ interface PokemonsProps {
   decreaseOffset: () => void;
   clickedPokemonId: number;
   offset: number;
+  searchInput: string;
 }
 
 const Pokemons = ({
@@ -23,6 +24,7 @@ const Pokemons = ({
   decreaseOffset,
   clickedPokemonId,
   offset,
+  searchInput,
 }: PokemonsProps) => {
   const totalPokemons = data.pokemon_v2_pokemon.length;
   return (
@@ -30,22 +32,33 @@ const Pokemons = ({
       className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}
     >
       <div className='w-full flex gap-4 justify-center items-center'>
-      <LoadBtn
+        <LoadBtn
           label='<'
           onClick={decreaseOffset}
           display={offset === 0 ? 'hidden' : 'block'}
         />
-        <p className={`text-gray-500 text-xs ${totalPokemons < 50 ? 'hidden' : 'block'}`}>
+        <p
+          className={`text-gray-500 text-xs ${
+            totalPokemons < 50 ? 'hidden' : 'block'
+          }`}
+        >
           Page {(offset / 50 + 1).toString()}
         </p>
         <LoadBtn
           label='>'
           onClick={increaseOffset}
-          display={offset === 10250 ? 'hidden' :totalPokemons < 50 ? 'hidden' : 'block'}
+          display={
+            offset === 10250
+              ? 'hidden'
+              : totalPokemons < 50
+              ? 'hidden'
+              : 'block'
+          }
         />
       </div>
       <p className='text-xs text-gray-500 mt-4'>
-        Loaded {totalPokemons} pokemon{totalPokemons===1?'':'s'}.
+        Showing {searchInput ? totalPokemons : `(${offset + 1} - ${offset + 50}
+        )`}  of 10271 pokemons.
       </p>
       <div
         className={`flex flex-wrap justify-start ${
@@ -74,13 +87,23 @@ const Pokemons = ({
           onClick={decreaseOffset}
           display={offset === 0 ? 'hidden' : 'block'}
         />
-        <p className={`text-gray-500 text-xs ${totalPokemons < 50 ? 'hidden' : 'block'}`}>
+        <p
+          className={`text-gray-500 text-xs ${
+            totalPokemons < 50 ? 'hidden' : 'block'
+          }`}
+        >
           Page {(offset / 50 + 1).toString()}
         </p>
         <LoadBtn
           label='>'
           onClick={increaseOffset}
-          display={offset === 10250 ? 'hidden' : totalPokemons < 50 ? 'hidden' : 'block'}
+          display={
+            offset === 10250
+              ? 'hidden'
+              : totalPokemons < 50
+              ? 'hidden'
+              : 'block'
+          }
         />
       </div>
     </div>
