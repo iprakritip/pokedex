@@ -19,7 +19,7 @@ const Home = () => {
   };
   
   return (
-    <div className='relative'>
+    <div className='relative bg-slate-100'>
       <Menu toggleMenu={toggleMenu} closeMenu={closeMenu} />
       <Navbar accessMenu={accessMenu} changeSearchInput={changeSearchInput}  />
       <Outlet context={{searchInput}} />

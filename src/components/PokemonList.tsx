@@ -53,7 +53,7 @@ const PokemonList = () => {
   if (error) return <div>error....</div>;
 
   return (
-    <div className='pokemonlist flex w-screen mt-40 px-4'>
+    <div className='pokemonlist flex w-screen mt-[9rem] px-4'>
       <Pokemons
         data={data}
         togglePokeInfo={togglePokeInfo}
