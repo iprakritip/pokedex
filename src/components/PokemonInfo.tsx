@@ -25,6 +25,7 @@ const PokemonInfo = ({
   if (storedId) {
     togglePokeInfo();
   }
+// console.log(closePokeInfo);
 
   const {getPokemonInfo, data, error, loading} = useGetPokemonInfo(
     storedId ? storedId : clickedPokemonId
@@ -39,6 +40,10 @@ const PokemonInfo = ({
   }, [clickedPokemonId]);
 
   const pokemon = data?.pokemon_v2_pokemon[0];
+  const handleClick=()=>{
+    closePokeInfo();
+    localStorage.removeItem('id');
+  }
 
   return (
     <div
@@ -56,10 +61,7 @@ const PokemonInfo = ({
             <Link to='/'>
               <button
                 className='text-xs text-gray-500 underline'
-                onClick={() => {
-                  closePokeInfo;
-                  localStorage.removeItem('id');
-                }}
+                onClick={handleClick}
               >{`close>>`}</button>
             </Link>
           </div>
