@@ -71,6 +71,7 @@ const PokemonList = () => {
         increaseClickedId={increaseClickedId}
         decreaseClickedId={decreaseClickedId}
         togglePokeInfo={togglePokeInfo}
+        changeSelectedPokemonId={changeSelectedPokemonId}
       />
       {/* <Outlet
         context={{

@@ -13,8 +13,8 @@ interface PokemonProps {
     };
   }[];
   changeSelectedPokemonId: (id: number) => void;
-  clickedPokemonId:number|undefined,
-  displayInfo:boolean
+  clickedPokemonId: number | undefined;
+  displayInfo: boolean;
 }
 
 const Pokemon = ({
@@ -24,7 +24,7 @@ const Pokemon = ({
   types,
   changeSelectedPokemonId,
   clickedPokemonId,
-  displayInfo
+  displayInfo,
 }: PokemonProps) => {
   const [searchParams] = useSearchParams();
   searchParams.set('pokedex', `${name}`);
@@ -35,6 +35,9 @@ const Pokemon = ({
     changeSelectedPokemonId(id);
     navigate(`?${searchParams.toString()}`);
   };
+
+  // console.log(clickedPokemonId);
+
   useEffect(() => {
     localStorage.setItem('id', `${clickedPokemonId}`);
   }, [clickedPokemonId]);
@@ -42,7 +45,9 @@ const Pokemon = ({
   return (
     <div
       onClick={handleClick}
-      className={`pokemon relative w-[100%] md:w-[40%] lg:w-[15%]  h-[15rem] pt-28 ${displayInfo?'lg:w-[20%]':''}`}
+      className={`pokemon relative w-[100%] md:w-[40%] lg:w-[15%]  h-[15rem] pt-28 ${
+        displayInfo ? 'lg:w-[20%]' : ''
+      }`}
     >
       <div className='absolute w-full bottom-[45%] z-10 flex justify-center'>
         <img

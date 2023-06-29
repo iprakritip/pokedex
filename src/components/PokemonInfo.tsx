@@ -11,9 +11,11 @@ interface PokemonInfoProps {
   increaseClickedId: () => void;
   decreaseClickedId: () => void;
   togglePokeInfo: () => void;
+  changeSelectedPokemonId: (id: number) => void;
 }
 
 const PokemonInfo = ({
+  changeSelectedPokemonId,
   displayInfo,
   clickedPokemonId,
   closePokeInfo,
@@ -25,7 +27,7 @@ const PokemonInfo = ({
   if (storedId) {
     togglePokeInfo();
   }
-// console.log(closePokeInfo);
+  // console.log(closePokeInfo);
 
   const {getPokemonInfo, data, error, loading} = useGetPokemonInfo(
     storedId ? storedId : clickedPokemonId
@@ -40,10 +42,11 @@ const PokemonInfo = ({
   }, [clickedPokemonId]);
 
   const pokemon = data?.pokemon_v2_pokemon[0];
-  const handleClick=()=>{
+  const handleClick = () => {
     closePokeInfo();
     localStorage.removeItem('id');
-  }
+    changeSelectedPokemonId(0);
+  };
 
   return (
     <div
@@ -72,7 +75,9 @@ const PokemonInfo = ({
               className=''
             />
           </div>
-          <p className='text-sm h-4  font-semibold text-gray-500'>#{pokemon?.id}</p>
+          <p className='text-sm h-4  font-semibold text-gray-500'>
+            #{pokemon?.id}
+          </p>
           <p className='font-bold h-8 text-lg text-gray-800'>
             {pokemon?.name.toUpperCase()}
           </p>
