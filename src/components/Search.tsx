@@ -10,7 +10,7 @@ const Search = ({changeSearchInput}: SearchProps) => {
     <div className='flex w-full relative mt-8 mb-4 justify-between'>
       <input
         type='text'
-        placeholder='Search'
+        placeholder='Search for a pokemon'
         className='w-[90%] text-gray-500 border border-gray-300 rounded px-4 outline-none'
         onChange={(e) => changeSearchInput(e.target.value)}
       />
