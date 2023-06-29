@@ -35,6 +35,7 @@ const Menu = ({toggleMenu, closeMenu}: MenuProps) => {
           bg='bg-rose-950'
         />
       </div>
+      <p className='text-sm text-green-500'>*The menu is under construction*</p>
     </div>
   );
 };
