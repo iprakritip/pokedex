@@ -27,9 +27,7 @@ const Pokemons = ({
   const totalPokemons = data.pokemon_v2_pokemon.length;
   return (
     <div
-      className={`pokemons flex flex-col items-center pt-6 min-h-screen  ${
-        displayInfo ? 'mr-[25rem] w-max' : 'w-full'
-      }`}
+      className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}
     >
       <div className='w-full flex gap-4 justify-center items-center'>
       <LoadBtn
@@ -50,8 +48,8 @@ const Pokemons = ({
         Loaded {totalPokemons} pokemon{totalPokemons===1?'':'s'}.
       </p>
       <div
-        className={`flex flex-wrap gap-6 justify-start ${
-          displayInfo ? 'mr-[25rem] w-[68vw]' : 'w-full'
+        className={`flex flex-wrap justify-start ${
+          displayInfo ? 'mr-[25rem] w-[68vw] gap-14 ' : 'w-full gap-6 '
         }`}
       >
         {data.pokemon_v2_pokemon.map((pokemon) => {
@@ -70,7 +68,7 @@ const Pokemons = ({
           );
         })}
       </div>
-      <div className='w-full flex gap-4 justify-center items-center'>
+      <div className='w-full flex gap-4 mt-10 justify-center items-center'>
         <LoadBtn
           label='<'
           onClick={decreaseOffset}

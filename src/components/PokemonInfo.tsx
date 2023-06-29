@@ -47,17 +47,17 @@ const PokemonInfo = ({
 
   return (
     <div
-      className={`h-[75vh] w-96 px-4 pb-4  bg-white shadow border rounded-lg fixed top-40  ${
+      className={`h-max w-96 px-4 pb-4  bg-white shadow border rounded-lg fixed top-40  ${
         displayInfo ? 'right-0' : 'right-[-25rem]'
       } flex flex-col items-center gap-2 transition-position duration-400 z-20 ease-in-out`}
     >
       {loading ? (
-        <div className='flex justify-center items-center h-full w-full text-gray-500'>
+        <div className='flex justify-center items-center h-[30rem] w-full text-gray-500'>
           loadinggggg.......
         </div>
       ) : (
         <div className='flex flex-col items-center gap-2'>
-          <div className='w-full flex justify-end'>
+          <div className='w-full flex justify-end h-4'>
             <Link to='/'>
               <button
                 className='text-xs text-gray-500 underline'
@@ -65,18 +65,18 @@ const PokemonInfo = ({
               >{`close>>`}</button>
             </Link>
           </div>
-          <div className='w-28'>
+          <div className='w-28 h-28'>
             <img
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon?.id}.png`}
               alt='bulbasaur'
               className=''
             />
           </div>
-          <p className='text-sm  font-semibold text-gray-500'>#{pokemon?.id}</p>
-          <p className='font-bold text-lg text-gray-800'>
+          <p className='text-sm h-4  font-semibold text-gray-500'>#{pokemon?.id}</p>
+          <p className='font-bold h-8 text-lg text-gray-800'>
             {pokemon?.name.toUpperCase()}
           </p>
-          <div className='flex flex-wrap gap-4'>
+          <div className='flex flex-wrap gap-4 h-8'>
             {pokemon?.pokemon_v2_pokemontypes.map((type: any) => {
               // console.log(type.pokemon_v2_type.name, type.pokemon_v2_type.id);
               return (
@@ -89,7 +89,7 @@ const PokemonInfo = ({
             })}
           </div>
           <div className='flex flex-col gap-6 items-center'>
-            <div className='flex flex-col items-center gap-1'>
+            <div className='flex flex-col items-center gap-1 h-18'>
               <p className='font-semibold text-sm'>
                 {'Pokédex Entry'.toUpperCase()}
               </p>
@@ -100,7 +100,7 @@ const PokemonInfo = ({
                 }
               </p>
             </div>
-            <div className='flex gap-4 justify-center'>
+            <div className='flex gap-4 justify-center h-14'>
               <div className='flex flex-col items-center gap-1'>
                 <p className='font-semibold text-sm'>HEIGHT</p>
                 <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
@@ -114,7 +114,7 @@ const PokemonInfo = ({
                 </p>
               </div>
             </div>
-            <div className='w-full'>
+            <div className='w-full h-8'>
               {pokemon?.id === 1 ? (
                 <PokeInfoBtn label='Next' onClick={increaseClickedId} />
               ) : (
