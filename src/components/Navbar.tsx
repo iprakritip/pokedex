@@ -10,11 +10,11 @@ interface NavbarProps {
 
 const Navbar = ({accessMenu, changeSearchInput}: NavbarProps) => {
   return (
-    <div className='w-screen bg-slate-100 fixed top-0 z-20 '>
+    <div className='w-screen bg-slate-100 fixed top-0 z-20 px-4'>
       <div className='flex justify-between items-center'>
         <Link to='/'>
           <div
-            className='w-48 cursor-pointer ml-4 mt-1'
+            className='w-48 cursor-pointer mt-1'
             onClick={() => changeSearchInput('')}
           >
             <img

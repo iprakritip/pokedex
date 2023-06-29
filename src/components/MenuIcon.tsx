@@ -11,8 +11,8 @@ const MenuIcon = ({setToggleMenu}: MenuIconProps) => {
 
   return (
     <button className='flex flex-col gap-[1px]' onClick={openMenu} data-testid='menu-icon'>
-      <div className='w-6 h-4 border border-r-0 bg-gray-800 rounded-sm'></div>
-      <div className='w-6 h-4 border border-r-0 bg-gray-800 rounded-sm'></div>
+      <div className='w-8 h-4 border border-r-0 bg-gray-800 rounded-sm'></div>
+      <div className='w-8 h-4 border border-r-0 bg-gray-800 rounded-sm'></div>
     </button>
   );
 };
