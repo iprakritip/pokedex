@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link, useOutletContext} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
+import Loader from './Loader';
 import PokeInfoBtn from './PokeInfoBtn';
 import Type from './Type';
 
@@ -56,7 +57,7 @@ const PokemonInfo = ({
     >
       {loading ? (
         <div className='flex justify-center items-center h-[30rem] w-full text-gray-500'>
-          loadinggggg.......
+          <Loader />
         </div>
       ) : (
         <div className='flex flex-col items-center gap-2'>
