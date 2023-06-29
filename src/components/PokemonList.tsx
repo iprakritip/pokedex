@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useOutletContext} from 'react-router-dom';
 import {useGetAllPokemons} from '../api/hooks';
 import useDebouncer from '../hooks/useDebouncer';
@@ -14,6 +14,7 @@ const PokemonList = () => {
     Number(localStorage.getItem('id'))
   );
   const [offset, setOffset] = useState(0);
+  
 
   const increaseOffset = () => {
     setOffset((prevValue) => prevValue + 50);
@@ -37,18 +38,25 @@ const PokemonList = () => {
   const changeSelectedPokemonId = (id: number) => {
     setClickedPokemonId(id);
   };
+  // console.log(searchInput);
+
   const debouncedSearch = useDebouncer(searchInput, 500);
+  // console.log('debounced', debouncedSearch);
 
   const getData = () => {
+    
     const {data, error, loading, fetchMore} = useGetAllPokemons(
       offset,
       debouncedSearch
     );
     return {data, error, loading, fetchMore};
   };
+  useEffect(()=>{
+    searchInput && setOffset(0)
+  },[searchInput])
 
   const {data, error, loading, fetchMore} = getData();
-
+  // console.log(data);
   if (loading) return <div>loading...</div>;
   if (error) return <div>error....</div>;
 
