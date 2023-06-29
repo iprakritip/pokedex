@@ -23,7 +23,8 @@ export default {
         'ice': '#7BD3DC',
         'dark': "#725120",
         'dragon': '#4564F9',
-        'ghost':'#57477E'
+        'ghost':'#57477E',
+        'electric':'#FFCB05'
       },
     },
   },

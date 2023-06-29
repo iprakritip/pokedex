@@ -26,7 +26,8 @@ const Type = ({typeName, typeId}: TypeProps) => {
       ${typeName === 'ice' ? 'bg-ice border-ice ':''} 
       ${typeName === 'dark' ? 'bg-dark border-dark ':''} 
       ${typeName === 'dragon' ? 'bg-dragon border-dragon ':''} 
-      ${typeName === 'ghost' ?'bg-ghost border-ghost ':''} 
+      ${typeName === 'ghost' ?'bg-ghost border-ghost ':''}
+      ${typeName === 'electric' ?' bg-electric border-electric':''}  
       px-3 py-2 border  rounded-md text-xs font-medium text-white`}
     >
       {typeName[0].toUpperCase()+typeName.slice(1)}

@@ -10,12 +10,16 @@ const PokemonList = () => {
     searchInput: string;
   }>();
   const [displayInfo, setDisplayInfo] = useState<boolean>(false);
-  const [clickedPokemonId, setClickedPokemonId] = useState(Number(localStorage.getItem('id')));
+  const [clickedPokemonId, setClickedPokemonId] = useState(
+    Number(localStorage.getItem('id'))
+  );
   const [offset, setOffset] = useState(0);
 
-
   const increaseOffset = () => {
-    setOffset((prevValue) => prevValue + 24);
+    setOffset((prevValue) => prevValue + 50);
+  };
+  const decreaseOffset = () => {
+    setOffset((prevValue) => prevValue - 50);
   };
 
   const togglePokeInfo = () => {
@@ -45,7 +49,6 @@ const PokemonList = () => {
 
   const {data, error, loading, fetchMore} = getData();
 
-
   if (loading) return <div>loading...</div>;
   if (error) return <div>error....</div>;
 
@@ -58,6 +61,8 @@ const PokemonList = () => {
         changeSelectedPokemonId={changeSelectedPokemonId}
         increaseOffset={increaseOffset}
         clickedPokemonId={clickedPokemonId}
+        offset={offset}
+        decreaseOffset={decreaseOffset}
       />
       <PokemonInfo
         displayInfo={displayInfo}
