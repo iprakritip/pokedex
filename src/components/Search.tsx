@@ -11,7 +11,7 @@ const Search = ({changeSearchInput}: SearchProps) => {
       <input
         type='text'
         placeholder='Search'
-        className='w-[90%] border border-gray-300 rounded px-4 outline-none'
+        className='w-[90%] text-gray-500 border border-gray-300 rounded px-4 outline-none'
         onChange={(e) => changeSearchInput(e.target.value)}
       />
 
