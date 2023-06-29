@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import PokemonList from '../components/PokemonList';
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
@@ -19,7 +18,7 @@ const Home = () => {
   };
   
   return (
-    <div className='relative bg-slate-100'>
+    <div className='relative bg-slate-100 flex flex-col items-center'>
       <Menu toggleMenu={toggleMenu} closeMenu={closeMenu} />
       <Navbar accessMenu={accessMenu} changeSearchInput={changeSearchInput}  />
       <Outlet context={{searchInput}} />
