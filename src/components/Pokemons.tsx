@@ -35,15 +35,15 @@ const Pokemons = ({
       <LoadBtn
           label='<'
           onClick={decreaseOffset}
-          display={offset === 0 ? 'hidden' : totalPokemons < 50 ? 'hidden' : 'block'}
+          display={offset === 0 ? 'hidden' : 'block'}
         />
         <p className={`text-gray-500 text-xs ${totalPokemons < 50 ? 'hidden' : 'block'}`}>
-          page {(offset / 50 + 1).toString()}
+          Page {(offset / 50 + 1).toString()}
         </p>
         <LoadBtn
           label='>'
           onClick={increaseOffset}
-          display={offset === 0 ? 'hidden' : totalPokemons < 50 ? 'hidden' : 'block'}
+          display={offset === 10250 ? 'hidden' :totalPokemons < 50 ? 'hidden' : 'block'}
         />
       </div>
       <p className='text-xs text-gray-500 mt-4'>
@@ -74,15 +74,15 @@ const Pokemons = ({
         <LoadBtn
           label='<'
           onClick={decreaseOffset}
-          display={offset === 0 ? 'hidden' : totalPokemons < 50 ? 'hidden' : 'block'}
+          display={offset === 0 ? 'hidden' : 'block'}
         />
         <p className={`text-gray-500 text-xs ${totalPokemons < 50 ? 'hidden' : 'block'}`}>
-          page {(offset / 50 + 1).toString()}
+          Page {(offset / 50 + 1).toString()}
         </p>
         <LoadBtn
           label='>'
           onClick={increaseOffset}
-          display={offset === 0 ? 'hidden' : totalPokemons < 50 ? 'hidden' : 'block'}
+          display={offset === 10250 ? 'hidden' : totalPokemons < 50 ? 'hidden' : 'block'}
         />
       </div>
     </div>
