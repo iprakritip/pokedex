@@ -14,7 +14,7 @@ const Navbar = ({accessMenu, changeSearchInput}: NavbarProps) => {
       <div className='flex justify-between items-center'>
         <Link to='/'>
           <div
-            className='w-48 cursor-pointer mt-1'
+            className='w-40 cursor-pointer mt-1'
             onClick={() => changeSearchInput('')}
           >
             <img
