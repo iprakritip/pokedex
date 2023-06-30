@@ -45,9 +45,7 @@ const Pokemon = ({
   return (
     <div
       onClick={handleClick}
-      className={`pokemon relative w-[100%] md:w-[40%] lg:w-[15%]  h-[15rem] pt-28 ${
-        displayInfo ? 'lg:w-[20%]' : ''
-      }`}
+      className={`pokemon relative heihgt-min pt-28 `}
     >
       <div className='absolute w-full bottom-[45%] z-10 flex justify-center'>
         <img

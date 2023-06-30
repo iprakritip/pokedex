@@ -17,7 +17,7 @@ import { gql, useLazyQuery, useQuery} from '@apollo/client';
 
 export const GET_ALL_POKEMONS = gql`
   query GetAllPokemons($offset:Int!, $input:String!) {
-    pokemon_v2_pokemon(limit: 50, offset:$offset, where: {name: {_iregex: $input}})   {
+    pokemon_v2_pokemon(limit: 60, offset:$offset, where: {name: {_iregex: $input}})   {
       id
       name
       pokemon_v2_pokemontypes {

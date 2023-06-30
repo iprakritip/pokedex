@@ -39,10 +39,10 @@ const Pokemons = ({
         />
         <p
           className={`text-gray-500 text-xs ${
-            totalPokemons < 50 ? 'hidden' : 'block'
+            totalPokemons < 60 ? 'hidden' : 'block'
           }`}
         >
-          Page {(offset / 50 + 1).toString()}
+          Page {(offset / 60 + 1).toString()}
         </p>
         <LoadBtn
           label='>'
@@ -50,19 +50,25 @@ const Pokemons = ({
           display={
             offset === 10250
               ? 'hidden'
-              : totalPokemons < 50
+              : totalPokemons < 60
               ? 'hidden'
               : 'block'
           }
         />
       </div>
       <p className='text-xs text-gray-500 mt-4'>
-        Showing {searchInput ? totalPokemons : `(${offset + 1} - ${offset + 50}
-        )`}  of 10271 pokemons.
+        Showing{' '}
+        {searchInput
+          ? totalPokemons
+          : `(${offset + 1} - ${offset + 60}
+        )`}{' '}
+        of 10271 pokemons.
       </p>
       <div
-        className={`flex flex-wrap justify-start ${
-          displayInfo ? 'mr-[25rem] w-[68vw] gap-14 ' : 'w-full gap-6 '
+        className={`grid auto-rows-fr w-full ${
+          displayInfo
+            ? 'pr-[25rem] gap-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'
+            : ' gap-6 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2'
         }`}
       >
         {data.pokemon_v2_pokemon.map((pokemon) => {
@@ -89,18 +95,18 @@ const Pokemons = ({
         />
         <p
           className={`text-gray-500 text-xs ${
-            totalPokemons < 50 ? 'hidden' : 'block'
+            totalPokemons < 60 ? 'hidden' : 'block'
           }`}
         >
-          Page {(offset / 50 + 1).toString()}
+          Page {(offset / 60 + 1).toString()}
         </p>
         <LoadBtn
           label='>'
           onClick={increaseOffset}
           display={
-            offset === 10250
+            offset === 10260
               ? 'hidden'
-              : totalPokemons < 50
+              : totalPokemons < 60
               ? 'hidden'
               : 'block'
           }

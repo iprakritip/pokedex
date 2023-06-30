@@ -2,8 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {useOutletContext} from 'react-router-dom';
 import {useGetAllPokemons} from '../api/hooks';
 import useDebouncer from '../hooks/useDebouncer';
+import Loader from './Loader';
 import PokemonInfo from './PokemonInfo';
 import Pokemons from './Pokemons';
+import PokemonsLoader from './PokemonsLoader';
 
 const PokemonList = () => {
   const {searchInput} = useOutletContext<{
@@ -14,13 +16,12 @@ const PokemonList = () => {
     Number(localStorage.getItem('id'))
   );
   const [offset, setOffset] = useState(0);
-  
 
   const increaseOffset = () => {
-    setOffset((prevValue) => prevValue + 50);
+    setOffset((prevValue) => prevValue + 60);
   };
   const decreaseOffset = () => {
-    setOffset((prevValue) => prevValue - 50);
+    setOffset((prevValue) => prevValue - 60);
   };
 
   const togglePokeInfo = () => {
@@ -44,20 +45,26 @@ const PokemonList = () => {
   // console.log('debounced', debouncedSearch);
 
   const getData = () => {
-    
     const {data, error, loading, fetchMore} = useGetAllPokemons(
       offset,
       debouncedSearch
     );
     return {data, error, loading, fetchMore};
   };
-  useEffect(()=>{
-    searchInput && setOffset(0)
-  },[searchInput])
+  useEffect(() => {
+    searchInput && setOffset(0);
+  }, [searchInput]);
 
   const {data, error, loading, fetchMore} = getData();
   // console.log(data);
-  if (loading) return <div>loading...</div>;
+  if (loading) {
+    // console.log('loading...');
+    return (
+      <div className='h-screen w-screen flex justify-center items-center'>
+        <PokemonsLoader />
+      </div>
+    );
+  }
   if (error) return <div>error....</div>;
 
   return (

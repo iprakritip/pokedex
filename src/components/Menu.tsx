@@ -10,7 +10,7 @@ const Menu = ({toggleMenu, closeMenu}: MenuProps) => {
   return (
     <div data-testid='menu'
       className={`h-screen w-[30vw] bg-white z-30 fixed ${
-        toggleMenu ? 'top-0 left-0' : 'left-[-35vw] top-0'
+        toggleMenu ? 'top-0 left-0' : 'left-[-50vw] top-0'
       } transition-position duration-500 ease-in-out flex flex-col gap-8 items-center`}
     >
       <p className='w-full bg-green-500 h-[4rem] text-white text-xl font-semibold flex justify-between items-center px-6'>
