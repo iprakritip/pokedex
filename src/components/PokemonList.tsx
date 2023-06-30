@@ -17,18 +17,9 @@ const PokemonList = () => {
     Number(localStorage.getItem('id'))
   );
   const [offset, setOffset] = useState(0);
-  const [offsetHolder, setOffsetHolder] = useState(0);
   const itemsPerPage = 60;
   const endOffset = offset + itemsPerPage;
-
-  const increaseOffset = () => {
-    setOffset((prevValue) => prevValue + itemsPerPage);
-    setOffsetHolder(offset + itemsPerPage);
-  };
-  const decreaseOffset = () => {
-    setOffset((prevValue) => prevValue - itemsPerPage);
-    setOffsetHolder(offset - itemsPerPage);
-  };
+  const [offsetHolder, setOffsetHolder] = useState(0);
 
   const togglePokeInfo = () => {
     setDisplayInfo(true);
@@ -49,20 +40,13 @@ const PokemonList = () => {
   const debouncedSearch = useDebouncer(searchInput, 500);
 
   const getData = () => {
-    console.log(offset, 'offset');
+    // console.log(offset, 'offset');
 
     const {data, error, loading, fetchMore} =
       useGetAllPokemons(debouncedSearch);
     return {data, error, loading, fetchMore};
   };
 
-  useEffect(() => {
-    searchInput !== ''
-      ? setOffset(0)
-      : offsetHolder > 0
-      ? setOffset(offsetHolder)
-      : setOffset(0);
-  }, [searchInput]);
   const {data, error, loading, fetchMore} = getData();
   // console.log(data);
 
@@ -74,10 +58,17 @@ const PokemonList = () => {
   const handlePageClick = (e: {selected: number}) => {
     const newOffset =
       (e.selected * itemsPerPage) % data.pokemon_v2_pokemon.length;
-    console.log('selected', e.selected);
-    console.log(newOffset, 'newoffset');
     setOffset(newOffset);
+    setOffsetHolder(newOffset);
   };
+
+  useEffect(() => {
+    searchInput !== ''
+      ? setOffset(0)
+      : offsetHolder > 0
+      ? setOffset(offsetHolder)
+      : setOffset(0);
+  }, [searchInput]);
 
   if (loading) {
     // console.log('loading...');
@@ -99,10 +90,7 @@ const PokemonList = () => {
           togglePokeInfo={togglePokeInfo}
           displayInfo={displayInfo}
           changeSelectedPokemonId={changeSelectedPokemonId}
-          increaseOffset={increaseOffset}
           clickedPokemonId={clickedPokemonId}
-          offset={offset}
-          decreaseOffset={decreaseOffset}
           searchInput={searchInput}
         />
         <PokemonInfo

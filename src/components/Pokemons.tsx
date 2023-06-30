@@ -8,10 +8,7 @@ interface PokemonsProps {
   togglePokeInfo: () => void;
   displayInfo: boolean;
   changeSelectedPokemonId: (id: number) => void;
-  increaseOffset: () => void;
-  decreaseOffset: () => void;
   clickedPokemonId: number;
-  offset: number;
   searchInput: string;
 }
 
@@ -20,10 +17,7 @@ const Pokemons = ({
   togglePokeInfo,
   displayInfo,
   changeSelectedPokemonId,
-  increaseOffset,
-  decreaseOffset,
   clickedPokemonId,
-  offset,
   searchInput,
 }: PokemonsProps) => {
   const totalPokemons = data.length;
@@ -31,39 +25,7 @@ const Pokemons = ({
     <div
       className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}
     >
-      {/* <div className='w-full flex gap-4 justify-center items-center'>
-        <LoadBtn
-          label='<'
-          onClick={decreaseOffset}
-          display={offset === 0 ? 'hidden' : 'block'}
-        />
-        <p
-          className={`text-gray-500 text-xs ${
-            totalPokemons < 60 ? 'hidden' : 'block'
-          }`}
-        >
-          Page {(offset / 60 + 1).toString()}
-        </p>
-        <LoadBtn
-          label='>'
-          onClick={increaseOffset}
-          display={
-            offset === 10260
-              ? 'hidden'
-              : totalPokemons < 60
-              ? 'hidden'
-              : 'block'
-          }
-        />
-      </div> */}
-      {/* <p className='text-xs text-gray-500 mt-4'>
-        Showing{' '}
-        {searchInput
-          ? totalPokemons
-          : `(${offset + 1} - ${offset + 60}
-        )`}{' '}
-        of 10271 pokemons.
-      </p> */}
+
       <div
         className={`grid auto-rows-fr w-full ${
           displayInfo
@@ -89,31 +51,7 @@ const Pokemons = ({
           );
         })}
       </div>
-      {/* <div className='w-full flex gap-4 mt-10 justify-center items-center'>
-        <LoadBtn
-          label='<'
-          onClick={decreaseOffset}
-          display={offset === 0 ? 'hidden' : 'block'}
-        />
-        <p
-          className={`text-gray-500 text-xs ${
-            totalPokemons < 60 ? 'hidden' : 'block'
-          }`}
-        >
-          Page {(offset / 60 + 1).toString()}
-        </p>
-        <LoadBtn
-          label='>'
-          onClick={increaseOffset}
-          display={
-            offset === 10260
-              ? 'hidden'
-              : totalPokemons < 60
-              ? 'hidden'
-              : 'block'
-          }
-        />
-      </div> */}
+
     </div>
   );
 };
