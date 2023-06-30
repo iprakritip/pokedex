@@ -16,8 +16,8 @@ import { gql, useLazyQuery, useQuery} from '@apollo/client';
 // `;
 
 export const GET_ALL_POKEMONS = gql`
-  query GetAllPokemons($offset:Int!, $input:String!) {
-    pokemon_v2_pokemon(limit: 60, offset:$offset, where: {name: {_iregex: $input}})   {
+  query GetAllPokemons( $input:String!) {
+    pokemon_v2_pokemon(where: {name: {_iregex: $input}})   {
       id
       name
       pokemon_v2_pokemontypes {
@@ -54,7 +54,7 @@ query GetPokemonInfo ($id:Int!){
 
 
 export interface DATA {
-  pokemon_v2_pokemon:{
+  
     id: number,
     name: string,
     pokemon_v2_pokemontypes: {
@@ -64,7 +64,7 @@ export interface DATA {
       }
     }[],
    
-  }[]
+  
 
 }
 
@@ -78,10 +78,9 @@ export interface DATA {
 //   return {error, loading, data,fetchMore};
 // };
 
-export const useGetAllPokemons = (offset:number, input:string) => {
+export const useGetAllPokemons = (input:string) => {
   const {error, loading, data,fetchMore} = useQuery(GET_ALL_POKEMONS,{
     variables:{
-      offset:offset,
       input:input
     }
   });

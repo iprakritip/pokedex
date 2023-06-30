@@ -4,7 +4,7 @@ import Pokemon from './Pokemon';
 import LoadBtn from './LoadBtn';
 
 interface PokemonsProps {
-  data: DATA;
+  data:DATA[];
   togglePokeInfo: () => void;
   displayInfo: boolean;
   changeSelectedPokemonId: (id: number) => void;
@@ -26,12 +26,12 @@ const Pokemons = ({
   offset,
   searchInput,
 }: PokemonsProps) => {
-  const totalPokemons = data.pokemon_v2_pokemon.length;
+  const totalPokemons = data.length;
   return (
     <div
       className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}
     >
-      <div className='w-full flex gap-4 justify-center items-center'>
+      {/* <div className='w-full flex gap-4 justify-center items-center'>
         <LoadBtn
           label='<'
           onClick={decreaseOffset}
@@ -55,15 +55,15 @@ const Pokemons = ({
               : 'block'
           }
         />
-      </div>
-      <p className='text-xs text-gray-500 mt-4'>
+      </div> */}
+      {/* <p className='text-xs text-gray-500 mt-4'>
         Showing{' '}
         {searchInput
           ? totalPokemons
           : `(${offset + 1} - ${offset + 60}
         )`}{' '}
         of 10271 pokemons.
-      </p>
+      </p> */}
       <div
         className={`grid auto-rows-fr w-full ${
           displayInfo
@@ -71,7 +71,9 @@ const Pokemons = ({
             : ' gap-6 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2'
         }`}
       >
-        {data.pokemon_v2_pokemon.map((pokemon) => {
+        {data.map((pokemon) => {
+          // console.log(pokemon);
+          
           const types = pokemon.pokemon_v2_pokemontypes;
           return (
             <Pokemon
@@ -87,7 +89,7 @@ const Pokemons = ({
           );
         })}
       </div>
-      <div className='w-full flex gap-4 mt-10 justify-center items-center'>
+      {/* <div className='w-full flex gap-4 mt-10 justify-center items-center'>
         <LoadBtn
           label='<'
           onClick={decreaseOffset}
@@ -111,7 +113,7 @@ const Pokemons = ({
               : 'block'
           }
         />
-      </div>
+      </div> */}
     </div>
   );
 };
