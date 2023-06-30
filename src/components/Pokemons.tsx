@@ -9,7 +9,7 @@ interface PokemonsProps {
   displayInfo: boolean;
   changeSelectedPokemonId: (id: number) => void;
   clickedPokemonId: number;
-  searchInput: string;
+
 }
 
 const Pokemons = ({
@@ -18,9 +18,8 @@ const Pokemons = ({
   displayInfo,
   changeSelectedPokemonId,
   clickedPokemonId,
-  searchInput,
 }: PokemonsProps) => {
-  const totalPokemons = data.length;
+  
   return (
     <div
       className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}

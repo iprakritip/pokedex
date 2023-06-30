@@ -91,7 +91,7 @@ const PokemonList = () => {
           displayInfo={displayInfo}
           changeSelectedPokemonId={changeSelectedPokemonId}
           clickedPokemonId={clickedPokemonId}
-          searchInput={searchInput}
+          
         />
         <PokemonInfo
           displayInfo={displayInfo}
