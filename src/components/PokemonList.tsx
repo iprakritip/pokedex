@@ -83,7 +83,7 @@ const PokemonList = () => {
   // console.log(currentData);
 
   return (
-    <div className='pokemonlist flex flex-col w-screen mt-[9rem] px-4'>
+    <div className='pokemonlist flex flex-col w-screen mt-[9rem] px-[5vw]'>
       <div className='flex'>
         <Pokemons
           data={currentData}

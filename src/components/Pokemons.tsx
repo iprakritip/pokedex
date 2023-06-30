@@ -29,8 +29,8 @@ const Pokemons = ({
       <div
         className={`grid auto-rows-fr w-full ${
           displayInfo
-            ? 'pr-[25rem] gap-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'
-            : ' gap-6 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2'
+            ? 'pr-[25rem] gap-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'
+            : ' gap-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2'
         }`}
       >
         {data.map((pokemon) => {
