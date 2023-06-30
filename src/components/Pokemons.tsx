@@ -48,7 +48,7 @@ const Pokemons = ({
           label='>'
           onClick={increaseOffset}
           display={
-            offset === 10250
+            offset === 10260
               ? 'hidden'
               : totalPokemons < 60
               ? 'hidden'
