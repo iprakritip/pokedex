@@ -10,7 +10,7 @@ interface NavbarProps {
 
 const Navbar = ({accessMenu, changeSearchInput}: NavbarProps) => {
   return (
-    <div className='w-screen bg-slate-100 fixed top-0 z-20 px-[10vw] md:px-[5vw]'>
+    <div className='w-screen bg-slate-100 fixed top-0 z-20 px-[5vw] md:px-[5vw]'>
       <div className='flex justify-between items-center'>
         <Link to='/'>
           <div
