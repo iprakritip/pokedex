@@ -84,6 +84,7 @@ const PokemonList = () => {
 
   return (
     <div className='pokemonlist flex flex-col w-screen mt-[9rem] px-[5vw]'>
+      {/* <div className='modal bg-black opacity-20 h-full w-full absolute'></div> */}
       <div className='flex'>
         <Pokemons
           data={currentData}

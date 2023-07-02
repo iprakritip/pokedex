@@ -52,7 +52,7 @@ const PokemonInfo = ({
   return (
     <div
       className={`h-max w-96 px-4 pb-4  bg-white shadow border rounded-lg fixed top-40  ${
-        displayInfo ? 'right-[5vw]' : 'right-[-25rem]'
+        displayInfo ? 'right-[4vw] md:right-[5vw]' : 'right-[-25rem]'
       } flex flex-col items-center gap-2 transition-position duration-400 z-20 ease-in-out`}
     >
       {loading ? (

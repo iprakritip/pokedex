@@ -9,8 +9,8 @@ interface MenuProps {
 const Menu = ({toggleMenu, closeMenu}: MenuProps) => {
   return (
     <div data-testid='menu'
-      className={`h-screen w-[30vw] bg-white z-30 fixed ${
-        toggleMenu ? 'top-0 left-0' : 'left-[-50vw] top-0'
+      className={`h-screen w-[80vw] md:w-[30vw] bg-white z-30 fixed ${
+        toggleMenu ? 'top-0 left-0' : 'left-[-90vw] md:left-[-50vw] top-0'
       } transition-position duration-500 ease-in-out flex flex-col gap-8 items-center`}
     >
       <p className='w-full bg-green-500 h-[4rem] text-white text-xl font-semibold flex justify-between items-center px-6'>
@@ -19,7 +19,7 @@ const Menu = ({toggleMenu, closeMenu}: MenuProps) => {
           ✕
         </button>
       </p>
-      <div className='flex flex-wrap justify-between gap-4 px-6'>
+      <div className='flex flex-wrap justify-center md:justify-between gap-4 px-6 '>
         <MenuItem label='Pokedex' border='border-green-500' bg='bg-green-500' />
         <MenuItem label='Moves' border='border-pink-500' bg='bg-pink-500' />
         <MenuItem label='Abilities' border='border-blue-500' bg='bg-blue-500' />
