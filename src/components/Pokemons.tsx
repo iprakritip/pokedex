@@ -4,12 +4,11 @@ import Pokemon from './Pokemon';
 import LoadBtn from './LoadBtn';
 
 interface PokemonsProps {
-  data:DATA[];
+  data: DATA[];
   togglePokeInfo: () => void;
   displayInfo: boolean;
   changeSelectedPokemonId: (id: number) => void;
   clickedPokemonId: number;
-
 }
 
 const Pokemons = ({
@@ -19,12 +18,10 @@ const Pokemons = ({
   changeSelectedPokemonId,
   clickedPokemonId,
 }: PokemonsProps) => {
-  
   return (
     <div
       className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}
     >
-
       <div
         className={`grid auto-rows-fr w-full ${
           displayInfo
@@ -32,9 +29,10 @@ const Pokemons = ({
             : ' gap-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2'
         }`}
       >
+        {data.length===0 && <p className='text-gray-500 text-sm mt-6'>No results found.</p>}
         {data.map((pokemon) => {
           // console.log(pokemon);
-          
+
           const types = pokemon.pokemon_v2_pokemontypes;
           return (
             <Pokemon
@@ -50,7 +48,6 @@ const Pokemons = ({
           );
         })}
       </div>
-
     </div>
   );
 };

@@ -144,6 +144,7 @@
   margin: 0 5px;
 }
 
+
 .pagination a {
   color: #333;
   text-decoration: none;
@@ -155,8 +156,21 @@
 }
 
 .pagination .active a {
-  border:0;
+  border: 0;
   border-radius: 50%;
   background-color: #333;
   color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .pagination {
+    margin: auto;
+    width:50vw;
+    display: flex;
+    gap:2px
+  }
+  .pagination a{
+   font-size: 8px;
+    padding: 2px 4px;
+  }
 }
