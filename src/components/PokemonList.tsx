@@ -1,18 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
 import {useOutletContext} from 'react-router-dom';
 import {useGetAllPokemons} from '../api/hooks';
 import useDebouncer from '../hooks/useDebouncer';
-import Loader from './Loader';
 import PokemonInfo from './PokemonInfo';
 import Pokemons from './Pokemons';
 import PokemonsLoader from './PokemonsLoader';
 import ReactPaginate from 'react-paginate';
 
 const PokemonList = () => {
-  const {searchInput} = useOutletContext<{
+  const {searchInput, displayInfo,setDisplayInfo} = useOutletContext<{
     searchInput: string;
+    displayInfo:boolean;
+    setDisplayInfo:Dispatch<SetStateAction<boolean>>
+
   }>();
-  const [displayInfo, setDisplayInfo] = useState<boolean>(false);
+  
   const [clickedPokemonId, setClickedPokemonId] = useState(
     Number(localStorage.getItem('id'))
   );
@@ -84,7 +86,7 @@ const PokemonList = () => {
 
   return (
     <div className='pokemonlist flex flex-col w-screen mt-[9rem] px-[5vw]'>
-      {/* <div className='modal bg-black opacity-20 h-full w-full absolute'></div> */}
+
       <div className='flex'>
         <Pokemons
           data={currentData}
