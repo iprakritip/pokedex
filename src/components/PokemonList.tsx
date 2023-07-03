@@ -4,17 +4,16 @@ import {useGetAllPokemons} from '../api/hooks';
 import useDebouncer from '../hooks/useDebouncer';
 import PokemonInfo from './PokemonInfo';
 import Pokemons from './Pokemons';
-import PokemonsLoader from './PokemonsLoader';
 import ReactPaginate from 'react-paginate';
+import PokemonsShimmer from './PokemonsShimmer';
 
 const PokemonList = () => {
-  const {searchInput, displayInfo,setDisplayInfo} = useOutletContext<{
+  const {searchInput, displayInfo, setDisplayInfo} = useOutletContext<{
     searchInput: string;
-    displayInfo:boolean;
-    setDisplayInfo:Dispatch<SetStateAction<boolean>>
-
+    displayInfo: boolean;
+    setDisplayInfo: Dispatch<SetStateAction<boolean>>;
   }>();
-  
+
   const [clickedPokemonId, setClickedPokemonId] = useState(
     Number(localStorage.getItem('id'))
   );
@@ -74,9 +73,14 @@ const PokemonList = () => {
 
   if (loading) {
     // console.log('loading...');
+    const shimmers = [];
+    const offset = 60;
+    for (let i = 0; i <= offset; i++) {
+      shimmers.push(<PokemonsShimmer />);
+    }
     return (
-      <div className='h-screen w-screen flex justify-center items-center'>
-        <PokemonsLoader />
+      <div className='loading  w-full mt-[15rem] px-[5vw] pt-6 min-h-screen grid auto-rows-fr gap-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2'>
+        {shimmers}
       </div>
     );
   }
@@ -86,7 +90,6 @@ const PokemonList = () => {
 
   return (
     <div className='pokemonlist flex flex-col w-screen mt-[9rem] px-[5vw]'>
-
       <div className='flex'>
         <Pokemons
           data={currentData}
@@ -94,7 +97,6 @@ const PokemonList = () => {
           displayInfo={displayInfo}
           changeSelectedPokemonId={changeSelectedPokemonId}
           clickedPokemonId={clickedPokemonId}
-          
         />
         <PokemonInfo
           displayInfo={displayInfo}

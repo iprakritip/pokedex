@@ -20,7 +20,7 @@ const Pokemons = ({
 }: PokemonsProps) => {
   return (
     <div
-      className={`pokemons flex flex-col w-full items-center pt-6 min-h-screen `}
+      className={`pokemons  w-full  pt-6 min-h-screen `}
     >
       <div
         className={`grid auto-rows-fr w-full ${
