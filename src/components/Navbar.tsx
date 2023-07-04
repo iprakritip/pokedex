@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Image from './Image';
 import MenuIcon from './MenuIcon';
 import Search from './Search';
+import Logo from '../img/poke-logo.png'
 
 interface NavbarProps {
   accessMenu: () => void;
@@ -18,8 +19,7 @@ const Navbar = ({accessMenu, changeSearchInput}: NavbarProps) => {
             className='w-40 cursor-pointer mt-1'
             onClick={() => changeSearchInput('')}
           >
-            <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
-              alt='poke-logo' />
+            <Image src={Logo} alt='poke-logo' />
           </div>
         </Link>
         <MenuIcon setToggleMenu={accessMenu} />

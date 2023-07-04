@@ -6,10 +6,8 @@ export default function useDebouncer(value: any, delay: number) {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
-      // console.log('debouncedValue');
     }, delay);
     return ()=> clearTimeout(handler);
   }, [value, delay]);
-  // console.log('end',debouncedValue);
   return debouncedValue;
 }
