@@ -114,13 +114,13 @@ const PokemonInfo = ({
               <div className='flex flex-col items-center gap-1'>
                 <p className='font-semibold text-sm'>HEIGHT</p>
                 <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
-                  {pokemon?.height} meters
+                  {((pokemon?.height)*0.1).toFixed(1)} meters
                 </p>
               </div>
               <div className='flex flex-col items-center gap-1'>
                 <p className='font-semibold text-sm'>WEIGHT</p>
                 <p className='bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center'>
-                  {pokemon?.weight} kgs
+                  {((pokemon?.weight)*0.1).toFixed(1)} kgs
                 </p>
               </div>
             </div>
