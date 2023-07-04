@@ -10,11 +10,6 @@ interface MenuItemProps {
 
 const MenuItem = ({label, border, bg, onClick}: MenuItemProps) => {
   return (
-    // <p
-    //   className={`${bg} text-white w-36 py-3 border ${border} rounded flex justify-center align-center`}
-    // >
-    //   {label}
-    // </p>
     <Button className={`${bg} text-white w-36 py-3 border ${border} rounded flex justify-center align-center`}
     label={label} onClick={onClick} />
   );

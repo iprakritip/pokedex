@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
 import Button from './Button';
 import Image from './Image';
+import PokeInfoSwitchBtn from './PokeInfoSwitchBtn';
 import PokeInfoShimmer from './shimmers/PokeInfoShimmer';
 import Type from './Type';
 
@@ -88,7 +89,6 @@ const PokemonInfo = ({
           </p>
           <div className='flex flex-wrap gap-4 h-8'>
             {pokemon?.pokemon_v2_pokemontypes.map((type: any) => {
-              // console.log(type.pokemon_v2_type.name, type.pokemon_v2_type.id);
               return (
                 <Type
                   key={type.pokemon_v2_type.id}
@@ -124,35 +124,7 @@ const PokemonInfo = ({
                 </p>
               </div>
             </div>
-            <div className='w-full h-8'>
-              {pokemon?.id === 1 ? (
-                // <PokeInfoBtn label='Next' onClick={increaseClickedId} />
-                <Button
-                  label='Next'
-                  onClick={increaseClickedId}
-                  className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
-                />
-              ) : pokemon?.id === 1279 ? (
-                <Button
-                  label='Prev'
-                  onClick={decreaseClickedId}
-                  className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
-                />
-              ) : (
-                <div className='flex gap-4 justify-between'>
-                  <Button
-                    label='Prev'
-                    onClick={decreaseClickedId}
-                    className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
-                  />
-                  <Button
-                    label='Next'
-                    onClick={increaseClickedId}
-                    className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
-                  />
-                </div>
-              )}
-            </div>
+            <PokeInfoSwitchBtn id={pokemon?.id} increaseClickedId={increaseClickedId} decreaseClickedId={decreaseClickedId} />
           </div>
         </div>
       )}

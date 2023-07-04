@@ -44,7 +44,7 @@ const Pokemon = ({
   return (
     <div
       onClick={handleClick}
-      className={`pokemon relative pt-28 h-full `}
+      className='pokemon relative pt-28 h-full'
     >
       <div className='absolute w-full bottom-[53%] z-10 flex justify-center'>
         <Image src={`https://projectpokemon.org/images/normal-sprite/${name.replace(
