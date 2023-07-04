@@ -30,7 +30,6 @@ const Pokemons = ({
       >
         {data.length===0 && <p className='text-gray-500 text-sm mt-6'>No results found.</p>}
         {data.map((pokemon) => {
-          // console.log(pokemon);
 
           const types = pokemon.pokemon_v2_pokemontypes;
           return (

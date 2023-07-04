@@ -41,21 +41,16 @@ const PokemonList = () => {
   const debouncedSearch = useDebouncer(searchInput, 500);
 
   const getData = () => {
-    // console.log(offset, 'offset');
-
     const {data, error, loading, fetchMore} =
       useGetAllPokemons(debouncedSearch);
     return {data, error, loading, fetchMore};
   };
 
   const {data, error, loading} = getData();
-  // console.log(data);
 
   const currentData = data?.pokemon_v2_pokemon.slice(offset, endOffset);
   const pageCount = Math.ceil(data?.pokemon_v2_pokemon.length / itemsPerPage);
-  // console.log(pageCount);
 
-  // console.log(data);
   const handlePageClick = (e: {selected: number}) => {
     const newOffset =
       (e.selected * itemsPerPage) % data.pokemon_v2_pokemon.length;
@@ -72,7 +67,6 @@ const PokemonList = () => {
   }, [searchInput]);
 
   if (loading) {
-    // console.log('loading...');
     const shimmers = [];
     const offset = 60;
     for (let i = 0; i < offset; i++) {
@@ -84,9 +78,12 @@ const PokemonList = () => {
       </div>
     );
   }
-  if (error) return <div>error....</div>;
-
-  // console.log(currentData);
+  if (error)
+    return (
+      <div className='loading  w-full mt-[15rem] px-[5vw] pt-6 min-h-screen grid auto-rows-fr gap-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2'>
+        error....
+      </div>
+    );
 
   return (
     <div className='pokemonlist flex flex-col w-screen mt-[9rem] px-[5vw]'>
