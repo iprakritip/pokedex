@@ -1,7 +1,6 @@
 import React from 'react';
 import {DATA} from '../api/hooks';
 import Pokemon from './Pokemon';
-import LoadBtn from './LoadBtn';
 
 interface PokemonsProps {
   data: DATA[];

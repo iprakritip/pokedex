@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
+import Input from './Input';
 import SVG from './SVG';
 
 interface SearchProps {
@@ -6,18 +7,18 @@ interface SearchProps {
 }
 
 const Search = ({changeSearchInput}: SearchProps) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    changeSearchInput(e.target.value);
+  };
   return (
     <div className='flex w-full relative mt-8 mb-4 justify-between'>
-      <input
-        type='text'
-        placeholder='Search'
-        className='border w-full border-gray-300 h-10 rounded pl-4 pr-8 outline-none'
-        onChange={(e) => changeSearchInput(e.target.value)}
+      <Input
+        placeholder='Search for Pokemon'
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)}
       />
       <div className='absolute top-[25%]  right-[0.5%] '>
         <SVG />
       </div>
-      
     </div>
   );
 };
