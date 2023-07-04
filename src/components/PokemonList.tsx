@@ -75,7 +75,7 @@ const PokemonList = () => {
     // console.log('loading...');
     const shimmers = [];
     const offset = 60;
-    for (let i = 0; i <= offset; i++) {
+    for (let i = 0; i < offset; i++) {
       shimmers.push(<PokemonsShimmer />);
     }
     return (

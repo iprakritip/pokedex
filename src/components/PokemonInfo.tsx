@@ -3,6 +3,7 @@ import {Link, useOutletContext} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
 import Loader from './Loader';
 import PokeInfoBtn from './PokeInfoBtn';
+import PokeInfoShimmer from './PokeInfoShimmer';
 import Type from './Type';
 
 interface PokemonInfoProps {
@@ -56,8 +57,8 @@ const PokemonInfo = ({
       } flex flex-col items-center gap-2 transition-position duration-400 z-40 ease-in-out`}
     >
       {loading ? (
-        <div className='flex justify-center items-center h-[30rem] w-full text-gray-500'>
-          <Loader />
+        <div className='flex justify-center items-center h-[28rem] w-full text-gray-500'>
+          <PokeInfoShimmer />
         </div>
       ) : (
         <div className='flex flex-col items-center gap-2'>
