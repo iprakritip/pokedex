@@ -20,6 +20,7 @@ describe('Pokemon', () => {
         types={types}
         changeSelectedPokemonId={mockedFn}
         clickedPokemonId={1}
+        displayInfo={false}
       />
     </BrowserRouter>
   );
@@ -29,5 +30,5 @@ describe('Pokemon', () => {
     expect(screen.getByText('BULBASAUR')).toBeInTheDocument();
   });
 
-  // passed
+  
 });

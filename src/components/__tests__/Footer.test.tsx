@@ -10,5 +10,3 @@ describe('footer', () => {
     expect(screen.getByText('Built by')).toBeInTheDocument();
   });
 });
-
-//passed

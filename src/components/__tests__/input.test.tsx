@@ -4,11 +4,10 @@ import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('input',()=>{
-    const TestComponent= (<Input/>)
+    const mockedFn=jest.fn()
+    const TestComponent= (<Input placeholder='' onChange={mockedFn}/>)
     it('renders properly',()=>{
         render(TestComponent)
         expect(screen.getByRole('textbox')).toBeInTheDocument()
     })
 })
-
-//passed

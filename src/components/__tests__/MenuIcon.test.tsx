@@ -12,5 +12,5 @@ const mockedFn=jest.fn()
         expect(screen.getByRole('button')).toBeInTheDocument()
     })
 
-    //passed
+  
 })

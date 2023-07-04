@@ -18,7 +18,7 @@ describe('Navbar', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  //passed
+  
 
   test('renders search button', () => {
     render(TestComponent);
@@ -26,5 +26,5 @@ describe('Navbar', () => {
         selector: 'button'
       })).toBeInTheDocument();
   });
-  //passed
+
 });

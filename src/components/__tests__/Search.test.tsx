@@ -11,10 +11,10 @@ describe('Search', () => {
     render(TestComponent);
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
-  //passed
+
   it('rennders Button',()=>{
     render(TestComponent);
     expect(screen.getByRole('button')).toBeInTheDocument();
   })
-  //passed
+  
 });

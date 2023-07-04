@@ -20,5 +20,4 @@ describe('App', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  //passed in case of errorpage
 });

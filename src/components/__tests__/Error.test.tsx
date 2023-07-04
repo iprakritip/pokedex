@@ -10,5 +10,5 @@ describe('ErrorPage', () => {
         render(TestComponent)
         expect(screen.getByText(/Sorry!!!! Something went wrong/)).toBeInTheDocument()
     })
-    //passed
+  
  })

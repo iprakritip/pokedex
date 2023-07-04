@@ -3,7 +3,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import {BrowserRouter} from 'react-router-dom';
 import Home from '../../pages/Home';
-import userEvent from '@testing-library/user-event';
+
 
 describe('Home', () => {
   const TestComponent = (
@@ -17,7 +17,7 @@ describe('Home', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  //passed
+
 
   test('renders search button', () => {
     render(TestComponent);
@@ -27,7 +27,7 @@ describe('Home', () => {
       })
     ).toBeInTheDocument();
   });
-  //passed
+ 
 
   it('should toggle the menu when accessMenu is called', async () => {
     const {getByTestId} = render(TestComponent);
@@ -36,14 +36,11 @@ describe('Home', () => {
     fireEvent.click(menuButton);
      expect(await screen.findByText('Menu')).toBeInTheDocument();
   });
-
-  //passed
-
   
 
   test('Renders footer', () => {
     render(TestComponent);
     expect(screen.getByText('Built by')).toBeInTheDocument();
   });
-  //passed
+
 });
