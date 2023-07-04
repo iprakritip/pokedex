@@ -9,5 +9,5 @@ describe('Type', () => {
     render(TestComponent);
     expect(screen.getByText('Grass')).toBeInTheDocument();
   });
-  //passed
+ 
 });
