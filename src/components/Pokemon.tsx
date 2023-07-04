@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link, useNavigate, useSearchParams} from 'react-router-dom';
 import Type from '../components/Type';
+import Image from './Image';
 
 interface PokemonProps {
   togglePokeInfo: () => void;
@@ -48,13 +49,11 @@ const Pokemon = ({
       className={`pokemon relative pt-28 h-full `}
     >
       <div className='absolute w-full bottom-[53%] z-10 flex justify-center'>
-        <img
-          src={`https://projectpokemon.org/images/normal-sprite/${name.replace(
+        <Image src={`https://projectpokemon.org/images/normal-sprite/${name.replace(
             '-',
             '_'
           )}.gif`}
-          alt={name}
-        />
+          alt={name} />
       </div>
       <div className=' w-full h-full bg-white relative border rounded shadow flex flex-col gap-3 items-center px-3 pt-10 pb-8'>
         <p className='text-xs  font-semibold text-gray-500'>#{id}</p>

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
+import Image from './Image';
 import PokeInfoBtn from './PokeInfoBtn';
 import PokeInfoShimmer from './shimmers/PokeInfoShimmer';
 import Type from './Type';
@@ -70,11 +71,8 @@ const PokemonInfo = ({
             </Link>
           </div>
           <div className='w-28 h-28'>
-            <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon?.id}.png`}
-              alt='bulbasaur'
-              className=''
-            />
+            <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon?.id}.png`}
+              alt={`${pokemon?.name}`} />
           </div>
           <p className='text-sm h-4  font-semibold text-gray-500'>
             #{pokemon?.id}
