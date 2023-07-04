@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Link, useNavigate, useSearchParams} from 'react-router-dom';
+import { useNavigate, useSearchParams} from 'react-router-dom';
 import Type from '../components/Type';
 import Image from './Image';
 
@@ -36,8 +36,6 @@ const Pokemon = ({
     changeSelectedPokemonId(id);
     navigate(`?${searchParams.toString()}`);
   };
-
-  // console.log(clickedPokemonId);
 
   useEffect(() => {
     localStorage.setItem('id', `${clickedPokemonId}`);

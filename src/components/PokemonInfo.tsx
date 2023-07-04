@@ -29,7 +29,6 @@ const PokemonInfo = ({
   if (storedId) {
     togglePokeInfo();
   }
-  // console.log(closePokeInfo);
 
   const {getPokemonInfo, data, error, loading} = useGetPokemonInfo(
     storedId ? storedId : clickedPokemonId
@@ -59,6 +58,10 @@ const PokemonInfo = ({
       {loading ? (
         <div className='flex justify-center items-center h-[28rem] w-full text-gray-500'>
           <PokeInfoShimmer />
+        </div>
+      ) : error ? (
+        <div className='flex justify-center items-center h-[28rem] w-full text-gray-500'>
+          Sorry, something went wrong.
         </div>
       ) : (
         <div className='flex flex-col items-center gap-2'>
