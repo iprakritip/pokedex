@@ -1,9 +1,9 @@
 import React from 'react';
-import {DATA} from '../api/hooks';
+import {API_DATA} from '../api/hooks';
 import Pokemon from './Pokemon';
 
 interface PokemonsProps {
-  data: DATA[];
+  data: API_DATA[];
   togglePokeInfo: () => void;
   displayInfo: boolean;
   changeSelectedPokemonId: (id: number) => void;
