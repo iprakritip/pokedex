@@ -48,8 +48,8 @@ const PokemonList = () => {
     return {data, error, loading, fetchMore};
   };
 
-  const {data, error, loading, fetchMore} = getData();
-  console.log(data);
+  const {data, error, loading} = getData();
+  // console.log(data);
 
   const currentData = data?.pokemon_v2_pokemon.slice(offset, endOffset);
   const pageCount = Math.ceil(data?.pokemon_v2_pokemon.length / itemsPerPage);
