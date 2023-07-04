@@ -5,7 +5,7 @@ import useDebouncer from '../hooks/useDebouncer';
 import PokemonInfo from './PokemonInfo';
 import Pokemons from './Pokemons';
 import ReactPaginate from 'react-paginate';
-import PokemonsShimmer from './PokemonsShimmer';
+import PokemonsShimmer from './shimmers/PokemonsShimmer';
 
 const PokemonList = () => {
   const {searchInput, displayInfo, setDisplayInfo} = useOutletContext<{

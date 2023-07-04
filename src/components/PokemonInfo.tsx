@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
 import PokeInfoBtn from './PokeInfoBtn';
-import PokeInfoShimmer from './PokeInfoShimmer';
+import PokeInfoShimmer from './shimmers/PokeInfoShimmer';
 import Type from './Type';
 
 interface PokemonInfoProps {
