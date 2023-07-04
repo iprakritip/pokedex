@@ -11,13 +11,16 @@ interface NavbarProps {
 }
 
 const Navbar = ({accessMenu, changeSearchInput}: NavbarProps) => {
+  const clearSearchInput=()=>{
+    changeSearchInput('')
+  }
   return (
     <div className='w-screen bg-slate-100 fixed top-0 z-20 px-[5vw] md:px-[5vw]'>
       <div className='flex justify-between items-center'>
         <Link to='/'>
           <div
             className='w-40 cursor-pointer mt-1'
-            onClick={() => changeSearchInput('')}
+            onClick={clearSearchInput}
           >
             <Image src={Logo} alt='poke-logo' />
           </div>
