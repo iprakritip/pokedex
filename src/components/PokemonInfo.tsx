@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useGetPokemonInfo} from '../api/hooks';
+import Button from './Button';
 import Image from './Image';
-import PokeInfoBtn from './PokeInfoBtn';
 import PokeInfoShimmer from './shimmers/PokeInfoShimmer';
 import Type from './Type';
 
@@ -64,15 +64,18 @@ const PokemonInfo = ({
         <div className='flex flex-col items-center gap-2'>
           <div className='w-full flex justify-end h-4'>
             <Link to='/'>
-              <button
-                className='text-xs text-gray-500 underline'
+              <Button
+                label={`close>>`}
                 onClick={handleClick}
-              >{`close>>`}</button>
+                className='text-xs text-gray-500 underline'
+              />
             </Link>
           </div>
           <div className='w-28 h-28'>
-            <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon?.id}.png`}
-              alt={`${pokemon?.name}`} />
+            <Image
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon?.id}.png`}
+              alt={`${pokemon?.name}`}
+            />
           </div>
           <p className='text-sm h-4  font-semibold text-gray-500'>
             #{pokemon?.id}
@@ -120,11 +123,30 @@ const PokemonInfo = ({
             </div>
             <div className='w-full h-8'>
               {pokemon?.id === 1 ? (
-                <PokeInfoBtn label='Next' onClick={increaseClickedId} />
+                // <PokeInfoBtn label='Next' onClick={increaseClickedId} />
+                <Button
+                  label='Next'
+                  onClick={increaseClickedId}
+                  className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
+                />
+              ) : pokemon?.id === 1279 ? (
+                <Button
+                  label='Prev'
+                  onClick={decreaseClickedId}
+                  className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
+                />
               ) : (
                 <div className='flex gap-4 justify-between'>
-                  <PokeInfoBtn label='Prev' onClick={decreaseClickedId} />
-                  <PokeInfoBtn label='Next' onClick={increaseClickedId} />
+                  <Button
+                    label='Prev'
+                    onClick={decreaseClickedId}
+                    className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
+                  />
+                  <Button
+                    label='Next'
+                    onClick={increaseClickedId}
+                    className='w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md'
+                  />
                 </div>
               )}
             </div>
