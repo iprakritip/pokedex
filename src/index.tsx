@@ -5,13 +5,14 @@ import App from './App';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://beta.pokeapi.co/graphql/console/',
+  uri: 'https://beta.pokeapi.co/graphql/v1beta/',
   cache: new InMemoryCache(),
 });
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <ApolloProvider client={client}>
     <React.StrictMode>

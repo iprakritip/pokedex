@@ -1,0 +1,497 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokemon List should render pokemons 1`] = `
+<body>
+  <div>
+    <div
+      class="pokemonlist flex w-screen mt-40"
+    >
+      <div
+        class="pokemons flex flex-col items-center gap-28 min-h-screen w-full"
+      >
+        <div
+          class="flex flex-wrap gap-6 justify-between w-full"
+        >
+          <div
+            class="pokemon relative w-[15%] h-[15rem] pt-28 "
+          >
+            <div
+              class="absolute w-full bottom-[45%] z-10 flex justify-center"
+            >
+              <img
+                alt="bulbasaur"
+                src="https://projectpokemon.org/images/normal-sprite/bulbasaur.gif"
+              />
+            </div>
+            <div
+              class=" w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8"
+            >
+              <p
+                class="text-xs  font-semibold text-gray-500"
+              >
+                #
+                1
+              </p>
+              <p
+                class="font-bold text-gray-800 text-sm"
+              >
+                BULBASAUR
+              </p>
+              <div
+                class="flex flex-wrap gap-4 justify-center"
+              >
+                <button
+                  class=" bg-grass border-grass false
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Grass
+                </button>
+                <button
+                  class=" false bg-poison border-poison
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Poison
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pokemon relative w-[15%] h-[15rem] pt-28 "
+          >
+            <div
+              class="absolute w-full bottom-[45%] z-10 flex justify-center"
+            >
+              <img
+                alt="ivysaur"
+                src="https://projectpokemon.org/images/normal-sprite/ivysaur.gif"
+              />
+            </div>
+            <div
+              class=" w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8"
+            >
+              <p
+                class="text-xs  font-semibold text-gray-500"
+              >
+                #
+                2
+              </p>
+              <p
+                class="font-bold text-gray-800 text-sm"
+              >
+                IVYSAUR
+              </p>
+              <div
+                class="flex flex-wrap gap-4 justify-center"
+              >
+                <button
+                  class=" bg-grass border-grass false
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Grass
+                </button>
+                <button
+                  class=" false bg-poison border-poison
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Poison
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pokemon relative w-[15%] h-[15rem] pt-28 "
+          >
+            <div
+              class="absolute w-full bottom-[45%] z-10 flex justify-center"
+            >
+              <img
+                alt="venusaur"
+                src="https://projectpokemon.org/images/normal-sprite/venusaur.gif"
+              />
+            </div>
+            <div
+              class=" w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8"
+            >
+              <p
+                class="text-xs  font-semibold text-gray-500"
+              >
+                #
+                3
+              </p>
+              <p
+                class="font-bold text-gray-800 text-sm"
+              >
+                VENUSAUR
+              </p>
+              <div
+                class="flex flex-wrap gap-4 justify-center"
+              >
+                <button
+                  class=" bg-grass border-grass false
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Grass
+                </button>
+                <button
+                  class=" false bg-poison border-poison
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Poison
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pokemon relative w-[15%] h-[15rem] pt-28 "
+          >
+            <div
+              class="absolute w-full bottom-[45%] z-10 flex justify-center"
+            >
+              <img
+                alt="venusaur-mega"
+                src="https://projectpokemon.org/images/normal-sprite/venusaur_mega.gif"
+              />
+            </div>
+            <div
+              class=" w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8"
+            >
+              <p
+                class="text-xs  font-semibold text-gray-500"
+              >
+                #
+                10033
+              </p>
+              <p
+                class="font-bold text-gray-800 text-sm"
+              >
+                VENUSAUR-MEGA
+              </p>
+              <div
+                class="flex flex-wrap gap-4 justify-center"
+              >
+                <button
+                  class=" bg-grass border-grass false
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Grass
+                </button>
+                <button
+                  class=" false bg-poison border-poison
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Poison
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pokemon relative w-[15%] h-[15rem] pt-28 "
+          >
+            <div
+              class="absolute w-full bottom-[45%] z-10 flex justify-center"
+            >
+              <img
+                alt="venusaur-gmax"
+                src="https://projectpokemon.org/images/normal-sprite/venusaur_gmax.gif"
+              />
+            </div>
+            <div
+              class=" w-full bg-white relative border rounded shadow flex flex-col gap-3 items-center pt-8 pb-8"
+            >
+              <p
+                class="text-xs  font-semibold text-gray-500"
+              >
+                #
+                10195
+              </p>
+              <p
+                class="font-bold text-gray-800 text-sm"
+              >
+                VENUSAUR-GMAX
+              </p>
+              <div
+                class="flex flex-wrap gap-4 justify-center"
+              >
+                <button
+                  class=" bg-grass border-grass false
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Grass
+                </button>
+                <button
+                  class=" false bg-poison border-poison
+      false
+      false
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      false 
+      px-3 py-2 border  rounded-md text-xs font-medium text-white"
+                >
+                  Poison
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="bg-pink-600 border border-pink-600 text-white w-[14%] text-sm px-6 py-2 rounded-lg"
+        >
+          Load more
+        </button>
+      </div>
+      <div
+        class="h-[75vh] w-96 px-4 pb-4  bg-white shadow border rounded-lg fixed top-40  right-[-25rem] flex flex-col items-center gap-2 transition-position duration-400 z-20 ease-in-out"
+      >
+        <div
+          class="flex flex-col items-center gap-2"
+        >
+          <div
+            class="w-full flex justify-end"
+          >
+            <a
+              href="/"
+            >
+              <button
+                class="text-xs text-gray-500 underline"
+              >
+                close&gt;&gt;
+              </button>
+            </a>
+          </div>
+          <div
+            class="w-28"
+          >
+            <img
+              alt="bulbasaur"
+              class=""
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/undefined.png"
+            />
+          </div>
+          <p
+            class="text-sm  font-semibold text-gray-500"
+          >
+            #
+          </p>
+          <p
+            class="font-bold text-lg text-gray-800"
+          />
+          <div
+            class="flex flex-wrap gap-4"
+          />
+          <div
+            class="flex flex-col gap-6 items-center"
+          >
+            <div
+              class="flex flex-col items-center gap-1"
+            >
+              <p
+                class="font-semibold text-sm"
+              >
+                POKÉDEX ENTRY
+              </p>
+              <p
+                class="text-sm font-medium text-gray-800 text-center"
+              />
+            </div>
+            <div
+              class="flex gap-4 justify-center"
+            >
+              <div
+                class="flex flex-col items-center gap-1"
+              >
+                <p
+                  class="font-semibold text-sm"
+                >
+                  HEIGHT
+                </p>
+                <p
+                  class="bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center"
+                >
+                   meters
+                </p>
+              </div>
+              <div
+                class="flex flex-col items-center gap-1"
+              >
+                <p
+                  class="font-semibold text-sm"
+                >
+                  WEIGHT
+                </p>
+                <p
+                  class="bg-slate-100 w-32 py-2 border text-sm border-slate-100 rounded-full text-center"
+                >
+                   kgs
+                </p>
+              </div>
+            </div>
+            <div
+              class="w-full"
+            >
+              <div
+                class="flex gap-4 justify-between"
+              >
+                <button
+                  class="w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md"
+                >
+                  Prev
+                </button>
+                <button
+                  class="w-full flex justify-center items-center font-semibold text-sm gap-2 bg-slate-100 border py-2 border-slate-100 rounded-md"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

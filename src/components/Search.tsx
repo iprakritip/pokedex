@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
+import Input from './Input';
 import SVG from './SVG';
 
-const Search = () => {
-  return (
-    <div className='flex w-screen justify-between relative mt-8'>
-      <input
-        type='text'
-        placeholder='Search'
-        className='w-[91%]  border border-gray-300 rounded px-4 outline-none'
-      />
+interface SearchProps {
+  changeSearchInput: (input: string) => void;
+}
 
-      <div className='absolute top-3 right-32 '>
+const Search = ({changeSearchInput}: SearchProps) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    changeSearchInput(e.target.value);
+  };
+  return (
+    <div className='flex w-full relative mt-8 mb-4 justify-between'>
+      <Input
+        placeholder='Search for Pokemon'
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)}
+      />
+      <div className='absolute top-[25%]  right-[0.5%] '>
         <SVG />
       </div>
-      <button className='bg-pink-600 text-white px-6 py-2 border text-lg rounded-lg'>
-        Search
-      </button>
     </div>
   );
 };
